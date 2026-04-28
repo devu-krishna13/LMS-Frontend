@@ -113,7 +113,7 @@
                 <div class="visual-bg"
                     style="position: absolute; width: 100%; height: 100%; background: var(--primary); opacity: 0.1; filter: blur(60px); border-radius: 50%;">
                 </div>
-                <img src="{{ asset('assets/admin_mockup.png') }}" id="module-img" alt="Module Interface"
+                <img src="{{ asset('assets/Modules/premium_admin.png') }}" id="module-img" alt="Module Interface"
                     style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transition: 0.5s ease; position: relative; z-index: 2;">
             </div>
         </div>

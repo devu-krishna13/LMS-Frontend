@@ -28,9 +28,9 @@ const contents = document.querySelectorAll('.module-content');
 const moduleImg = document.getElementById('module-img');
 
 const imageMap = {
-    admin: 'assets/admin_mockup.png',
-    tutor: 'assets/hero_mockup.png',
-    student: 'assets/admin_mockup.png'
+    admin: 'assets/Modules/premium_admin.png',
+    tutor: 'assets/Modules/premium_trainer.png',
+    student: 'assets/Modules/premium_student.png'
 };
 
 tabs.forEach(tab => {
