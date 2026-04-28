@@ -171,6 +171,24 @@ if (demoForm) {
         localStorage.setItem('lms_demo_lead', JSON.stringify(formData));
         console.log('Lead Captured & Persisted:', formData);
 
+        // Send Lead Data to Backend for Email
+        fetch('/register-lead', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                inst_name: formData.name,
+                inst_location: formData.location,
+                country_code: formData.countryCode,
+                inst_phone: formData.phone,
+                inst_email: formData.email
+            })
+        }).then(response => response.json())
+          .then(data => console.log('Backend sync:', data))
+          .catch(error => console.error('Error syncing lead:', error));
+
         // If there was a pending redirect, go there immediately
         if (pendingRedirect) {
             window.open(pendingRedirect, '_blank');
