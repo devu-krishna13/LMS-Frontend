@@ -162,9 +162,9 @@ demoModal.addEventListener('click', (e) => {
 });
 
 const demoLinks = {
-    admin: 'https://demo.lmspro.com/admin',
-    tutor: 'https://demo.lmspro.com/tutor',
-    student: 'https://demo.lmspro.com/student'
+    admin: 'http://127.0.0.1:8001/auto-login/admin',
+    tutor: 'http://127.0.0.1:8001/auto-login/tutor',
+    student: 'http://127.0.0.1:8001/auto-login/student'
 };
 
 roleBtns.forEach(btn => {

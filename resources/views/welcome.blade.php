@@ -82,7 +82,7 @@
                     <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--primary);"></i>
                         Advanced Coupon & Campaign Management</li>
                 </ul>
-                <a href="#" class="btn btn-primary">Open Admin Console</a>
+                <a href="http://127.0.0.1:8001/auto-login/admin" target="_blank" class="btn btn-primary">Open Admin Console</a>
             </div>
             <div class="module-content" id="tutor">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Teaching Excellence</h2>
@@ -94,7 +94,7 @@
                     <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
                             style="color: var(--secondary);"></i> Content & PDF Asset Management</li>
                 </ul>
-                <a href="#" class="btn btn-primary" style="background: var(--secondary);">Open Tutor Dashboard</a>
+                <a href="http://127.0.0.1:8001/auto-login/tutor" target="_blank" class="btn btn-primary" style="background: var(--secondary);">Open Tutor Dashboard</a>
             </div>
             <div class="module-content" id="student">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Learning Reimagined</h2>
@@ -106,7 +106,7 @@
                     <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
                             style="color: var(--accent-green);"></i> Personal Portfolio & Growth Path</li>
                 </ul>
-                <a href="#" class="btn btn-primary" style="background: var(--accent-green);">Enter Student Hub</a>
+                <a href="http://127.0.0.1:8001/auto-login/student" target="_blank" class="btn btn-primary" style="background: var(--accent-green);">Enter Student Hub</a>
             </div>
 
             <div class="module-visual">
