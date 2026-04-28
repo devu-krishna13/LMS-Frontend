@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMS Pro | The Operating System for Modern Education</title>
-    @vite(['resources/css/style.css', 'resources/js/script.js'])
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="{{ asset('js/script.js') }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -36,7 +37,7 @@
                 <li><a href="#courses">Catalog</a></li>
             </ul>
             <div class="auth">
-                <a href="#" class="btn btn-glass header-btn">Log In</a>
+                <!-- <a href="#" class="btn btn-glass header-btn">Log In</a> -->
                 <a href="#" class="btn btn-primary header-btn">Join Now</a>
             </div>
         </nav>
@@ -112,8 +113,7 @@
                 <div class="visual-bg"
                     style="position: absolute; width: 100%; height: 100%; background: var(--primary); opacity: 0.1; filter: blur(60px); border-radius: 50%;">
                 </div>
-                <img src="{{ asset('assets/admin_mockup.png') }}"
-                    id="module-img" alt="Module Interface"
+                <img src="{{ asset('assets/admin_mockup.png') }}" id="module-img" alt="Module Interface"
                     style="width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transition: 0.5s ease; position: relative; z-index: 2;">
             </div>
         </div>
@@ -269,10 +269,11 @@
     <div id="demo-modal" class="modal-overlay">
         <div class="demo-modal">
             <button class="close-modal">&times;</button>
-            
+
             <div id="demo-step-1">
                 <h2 style="margin-bottom: 1rem;">Experience the Future.</h2>
-                <p style="color: var(--text-muted); margin-bottom: 2.5rem;">Enter your details to unlock the interactive demo.</p>
+                <p style="color: var(--text-muted); margin-bottom: 2.5rem;">Enter your details to unlock the interactive
+                    demo.</p>
                 <form id="demo-info-form" class="premium-form">
                     <div class="form-row">
                         <div class="form-group">
@@ -290,7 +291,9 @@
                             <input type="email" id="inst-email" required placeholder="Email Address">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; justify-content: center;">Continue to Selection <i class="fas fa-arrow-right"></i></button>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; margin-top: 1.5rem; justify-content: center;">Continue to Selection <i
+                            class="fas fa-arrow-right"></i></button>
                 </form>
             </div>
 
@@ -298,17 +301,20 @@
                 <h2 style="margin-bottom: 2rem;">Choose your experience</h2>
                 <div class="role-grid">
                     <div class="role-btn" data-role="admin">
-                        <div class="role-icon" style="background: var(--primary);"><i class="fas fa-shield-halved"></i></div>
+                        <div class="role-icon" style="background: var(--primary);"><i class="fas fa-shield-halved"></i>
+                        </div>
                         <h3>Admin</h3>
                         <p>Manage academy, fees & tutors</p>
                     </div>
                     <div class="role-btn" data-role="tutor">
-                        <div class="role-icon" style="background: var(--secondary);"><i class="fas fa-chalkboard-user"></i></div>
+                        <div class="role-icon" style="background: var(--secondary);"><i
+                                class="fas fa-chalkboard-user"></i></div>
                         <h3>Tutor</h3>
                         <p>Deliver classes & track progress</p>
                     </div>
                     <div class="role-btn" data-role="student">
-                        <div class="role-icon" style="background: var(--accent-green);"><i class="fas fa-user-graduate"></i></div>
+                        <div class="role-icon" style="background: var(--accent-green);"><i
+                                class="fas fa-user-graduate"></i></div>
                         <h3>Student</h3>
                         <p>Access courses & certificates</p>
                     </div>
