@@ -238,9 +238,9 @@ demoModal.addEventListener('click', (e) => {
 
 const baseUrl = window.location.origin;
 const demoLinks = {
-    admin: `${baseUrl}/demo/auto-login/admin`,
-    tutor: `${baseUrl}/demo/auto-login/tutor`,
-    student: `${baseUrl}/demo/auto-login/student`
+    admin: `${baseUrl}/demo/public/auto-login/admin`,
+    tutor: `${baseUrl}/demo/public/auto-login/tutor`,
+    student: `${baseUrl}/demo/public/auto-login/student`
 };
 
 roleBtns.forEach(btn => {
