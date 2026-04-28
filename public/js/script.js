@@ -236,10 +236,11 @@ demoModal.addEventListener('click', (e) => {
     }
 });
 
+const baseUrl = window.location.origin;
 const demoLinks = {
-    admin: 'http://127.0.0.1:8001/auto-login/admin',
-    tutor: 'http://127.0.0.1:8001/auto-login/tutor',
-    student: 'http://127.0.0.1:8001/auto-login/student'
+    admin: `${baseUrl}/demo/auto-login/admin`,
+    tutor: `${baseUrl}/demo/auto-login/tutor`,
+    student: `${baseUrl}/demo/auto-login/student`
 };
 
 roleBtns.forEach(btn => {
