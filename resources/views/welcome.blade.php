@@ -37,8 +37,8 @@
                 <li><a href="#courses">Catalog</a></li>
             </ul>
             <div class="auth">
-                <!-- <a href="#" class="btn btn-glass header-btn">Log In</a> -->
                 <a href="#" class="btn btn-primary header-btn">Join Now</a>
+                <!-- <a href="#" class="btn btn-primary header-btn">Join Now</a> -->
             </div>
         </nav>
     </header>
