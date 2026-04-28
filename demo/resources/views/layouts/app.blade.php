@@ -74,10 +74,12 @@
         @else
             <nav class="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
                 <div class="max-w-7xl mx-auto px-6 flex justify-between h-[72px] items-center">
-                    <a href="{{ url('/') }}" class="flex items-center gap-3">
-                        <img src="{{ asset('ace logo.svg') }}" class="h-10 w-auto" alt="The Ace India">
-                        <img src="{{ asset('logo side.png') }}" class="h-7 w-auto" alt="The Ace India">
-                    </a>
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="bi bi-cpu text-white text-lg"></i>
+                        </div>
+                        <span class="text-navy font-black text-xl tracking-tighter uppercase">LMS <span class="text-primary">DEMO</span></span>
+                    </div>
                     <div class="flex items-center gap-6">
                         <a href="{{ route('login') }}" class="text-[14px] font-[700] text-muted hover:text-primary transition-colors">Log In</a>
                         <a href="{{ route('register') }}" class="bg-primary text-white px-6 py-2.5 rounded-[8px] text-[14px] font-[800] hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/20 uppercase tracking-widest">Enroll Now</a>
@@ -116,17 +118,11 @@
             >
                 <!-- Sidebar Header -->
                 <div class="h-[72px] flex items-center px-[20px] shrink-0 overflow-hidden">
-                    <div class="flex items-center gap-3">
-                        <img src="{{ asset('ace logo.svg') }}" 
-                             class="transition-all duration-300"
-                             :class="sidebarOpen ? 'h-10 w-auto' : 'h-8 w-auto mx-auto'" 
-                             alt="The Ace India">
-                        <img x-show="sidebarOpen" 
-                             x-transition:enter="transition ease-out duration-300"
-                             x-transition:enter-start="opacity-0 translate-x-2"
-                             x-transition:enter-end="opacity-100 translate-x-0"
-                             src="{{ asset('logo side.png') }}" 
-                             class="h-7 w-auto" alt="Ace India">
+                    <div class="flex items-center gap-2" :class="sidebarOpen ? '' : 'justify-center w-full'">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shrink-0">
+                            <i class="bi bi-cpu text-white text-lg"></i>
+                        </div>
+                        <span x-show="sidebarOpen" x-transition class="text-navy font-black text-xl tracking-tighter uppercase">LMS <span class="text-primary">DEMO</span></span>
                     </div>
                 </div>
 

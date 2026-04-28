@@ -110,12 +110,43 @@ if (demoBtn) {
     demoBtn.addEventListener('click', (e) => {
         e.preventDefault();
         demoModal.classList.add('active');
-        // Reset to step 1
-        step1.style.display = 'block';
-        step2.style.display = 'none';
         document.body.style.overflow = 'hidden';
+
+        const savedLead = localStorage.getItem('lms_demo_lead');
+        
+        if (savedLead) {
+            // Skip to Step 2 if user already provided info
+            step1.style.display = 'none';
+            step2.style.display = 'block';
+            step2.style.opacity = '1';
+        } else {
+            // Show Step 1
+            step1.style.display = 'block';
+            step1.style.opacity = '1';
+            step2.style.display = 'none';
+        }
     });
 }
+
+// 7.1 Role Access Link Logic
+let pendingRedirect = null;
+const roleAccessBtns = document.querySelectorAll('.role-access-btn');
+
+roleAccessBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const savedLead = localStorage.getItem('lms_demo_lead');
+        
+        if (!savedLead) {
+            e.preventDefault();
+            pendingRedirect = btn.getAttribute('href');
+            demoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            step1.style.display = 'block';
+            step1.style.opacity = '1';
+            step2.style.display = 'none';
+        }
+    });
+});
 
 if (closeModal) {
     closeModal.addEventListener('click', () => {
@@ -129,17 +160,27 @@ if (demoForm) {
     demoForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Capture data (simulate fetching/saving)
+        // Capture data and persist in localStorage
         const formData = {
             name: document.getElementById('inst-name').value,
             location: document.getElementById('inst-location').value,
-            phone: document.getElementById('inst-phone').value,
+            phone: document.getElementById('country-code').value + ' ' + document.getElementById('inst-phone').value,
             email: document.getElementById('inst-email').value,
         };
         
-        console.log('Lead Captured:', formData);
+        localStorage.setItem('lms_demo_lead', JSON.stringify(formData));
+        console.log('Lead Captured & Persisted:', formData);
 
-        // Transition to Step 2
+        // If there was a pending redirect, go there immediately
+        if (pendingRedirect) {
+            window.open(pendingRedirect, '_blank');
+            demoModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            pendingRedirect = null;
+            return;
+        }
+
+        // Transition to Step 2 (Normal flow)
         step1.style.opacity = '0';
         setTimeout(() => {
             step1.style.display = 'none';
@@ -150,6 +191,40 @@ if (demoForm) {
                 step2.style.transition = '0.5s';
             }, 50);
         }, 300);
+    });
+}
+
+// 8. Gallery Lightbox Logic
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightboxModal = document.getElementById('lightbox-modal');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeLightbox = document.querySelector('.close-lightbox');
+
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+            lightboxImg.src = img.src;
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+if (closeLightbox) {
+    closeLightbox.addEventListener('click', () => {
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Close on background click
+if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     });
 }
 

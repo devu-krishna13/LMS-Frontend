@@ -572,6 +572,7 @@ footer {
     background: linear-gradient(to top, rgba(2, 6, 23, 0.6), transparent);
     opacity: 0;
     transition: 0.3s;
+    pointer-events: none;
 }
 
 .gallery-item:hover::after {
@@ -646,6 +647,42 @@ footer {
 
 .close-modal:hover {
     color: white;
+}
+
+/* Lightbox Specifics */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.modal-overlay.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.gallery-item {
+    cursor: pointer;
 }
 
 .role-grid {
@@ -727,6 +764,41 @@ footer {
 
 .premium-form input::placeholder {
     color: #4B5563;
+}
+
+.phone-input-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.country-code-select {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem 0.5rem;
+    color: white;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    width: 90px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1rem;
+    padding-right: 2.2rem;
+}
+
+.country-code-select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.phone-input-container input {
+    flex: 1;
 }
 
 @media (max-width: 600px) {

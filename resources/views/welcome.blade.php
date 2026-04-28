@@ -82,7 +82,7 @@
                     <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--primary);"></i>
                         Advanced Coupon & Campaign Management</li>
                 </ul>
-                <a href="http://127.0.0.1:8001/auto-login/admin" target="_blank" class="btn btn-primary">Open Admin Console</a>
+                <a href="http://127.0.0.1:8001/auto-login/admin" target="_blank" class="btn btn-primary role-access-btn" data-role="admin">Open Admin Console</a>
             </div>
             <div class="module-content" id="tutor">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Teaching Excellence</h2>
@@ -94,7 +94,7 @@
                     <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
                             style="color: var(--secondary);"></i> Content & PDF Asset Management</li>
                 </ul>
-                <a href="http://127.0.0.1:8001/auto-login/tutor" target="_blank" class="btn btn-primary" style="background: var(--secondary);">Open Tutor Dashboard</a>
+                <a href="http://127.0.0.1:8001/auto-login/tutor" target="_blank" class="btn btn-primary role-access-btn" data-role="tutor" style="background: var(--secondary);">Open Tutor Dashboard</a>
             </div>
             <div class="module-content" id="student">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Learning Reimagined</h2>
@@ -106,7 +106,7 @@
                     <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle"
                             style="color: var(--accent-green);"></i> Personal Portfolio & Growth Path</li>
                 </ul>
-                <a href="http://127.0.0.1:8001/auto-login/student" target="_blank" class="btn btn-primary" style="background: var(--accent-green);">Enter Student Hub</a>
+                <a href="http://127.0.0.1:8001/auto-login/student" target="_blank" class="btn btn-primary role-access-btn" data-role="student" style="background: var(--accent-green);">Enter Student Hub</a>
             </div>
 
             <div class="module-visual">
@@ -198,22 +198,31 @@
         </div>
         <div class="gallery-container">
             <div class="gallery-track">
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_1.png') }}" alt="Education 1"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_2.png') }}" alt="Education 2"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_3.png') }}" alt="Education 3"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_4.png') }}" alt="Education 4"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_5.png') }}" alt="Education 5"></div>
-                <!-- Duplicate for loop -->
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_1.png') }}" alt="Education 1"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_2.png') }}" alt="Education 2"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_3.png') }}" alt="Education 3"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_4.png') }}" alt="Education 4"></div>
-                <div class="gallery-item"><img src="{{ asset('assets/gallery_5.png') }}" alt="Education 5"></div>
+                @php
+                    $demoImages = ['demo1.png', 'demo2.png', 'demo3.png', 'demo4.png', 'demo5.png', 'demo6.png', 'demo7.png', 'demo8.png', 'demo9.png', 'demo10.png', 'demo11.png', 'demo12.png'];
+                @endphp
+                
+                @foreach($demoImages as $img)
+                    <div class="gallery-item"><img src="{{ asset('assets/Demo/' . $img) }}" alt="Demo Screenshot"></div>
+                @endforeach
+                
+                {{-- Duplicate for infinite loop --}}
+                @foreach($demoImages as $img)
+                    <div class="gallery-item"><img src="{{ asset('assets/Demo/' . $img) }}" alt="Demo Screenshot"></div>
+                @endforeach
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="modal-overlay">
+        <div class="lightbox-content">
+            <button class="close-lightbox">&times;</button>
+            <img id="lightbox-img" src="" alt="Enlarged Preview">
+        </div>
+    </div>
+
+    <!-- Final Scripts -->
     <footer style="margin-top: 100px;">
         <div class="container footer-grid">
             <div class="footer-brand">
@@ -285,7 +294,17 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="tel" id="inst-phone" required placeholder="Phone Number">
+                            <div class="phone-input-container">
+                                <select class="country-code-select" id="country-code" required>
+                                    <option value="+91">+91</option>
+                                    <option value="+1">+1</option>
+                                    <option value="+44">+44</option>
+                                    <option value="+971">+971</option>
+                                    <option value="+61">+61</option>
+                                    <option value="+65">+65</option>
+                                </select>
+                                <input type="tel" id="inst-phone" required placeholder="Phone Number">
+                            </div>
                         </div>
                         <div class="form-group">
                             <input type="email" id="inst-email" required placeholder="Email Address">

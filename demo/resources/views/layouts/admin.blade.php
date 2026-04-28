@@ -97,9 +97,11 @@
         >
             <!-- Sidebar Header -->
             <div class="h-[72px] flex items-center px-[24px] shrink-0 overflow-hidden border-b border-border/50">
-                <div class="flex items-center gap-3">
-                    <img src="{{ asset('ace logo.svg') }}" class="h-10 w-auto" alt="The Ace India">
-                    <img src="{{ asset('logo side.png') }}" class="h-7 w-auto" alt="Ace India">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="bi bi-cpu text-white text-lg"></i>
+                    </div>
+                    <span class="text-navy font-black text-xl tracking-tighter">LMS <span class="text-primary">DEMO</span></span>
                 </div>
                 <!-- Mobile Close Button -->
                 <button @click="sidebarOpen = false" class="lg:hidden ml-auto text-navy">

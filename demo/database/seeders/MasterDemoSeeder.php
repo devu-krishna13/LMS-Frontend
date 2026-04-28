@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\LiveClassBranch;
 use App\Models\LiveClass;
 use App\Models\Admission;
+use App\Models\Batch;
 use App\Models\Fee;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -210,6 +211,11 @@ class MasterDemoSeeder extends Seeder
         }
 
         // 5. Seed Live Class Branches (Batches)
+        $batchModel1 = Batch::updateOrCreate(
+            ['name' => 'Fullstack Web Dev - Batch A'],
+            ['course_id' => 1, 'status' => 'active', 'start_date' => now()->format('Y-m-d')]
+        );
+
         $branch1 = LiveClassBranch::updateOrCreate(
             ['name' => 'Fullstack Web Dev - Batch A'],
             [
@@ -276,7 +282,7 @@ class MasterDemoSeeder extends Seeder
             Admission::updateOrCreate(
                 ['user_id' => $student->id, 'course_id' => 1],
                 [
-                    'batch_id' => $branch1->id,
+                    'batch_id' => $batchModel1->id,
                     'status' => 'approved',
                     'progress' => $index === 0 ? 100 : rand(10, 80), // Rahul (index 0) is at 100%
                     'certificate_path' => $index === 0 ? 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' : null,
