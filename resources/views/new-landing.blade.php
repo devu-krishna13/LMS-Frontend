@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -160,6 +161,25 @@
     margin-bottom: 32px;
     position: relative;
     z-index: 2;
+  }
+  .hero-badge-dot {
+    width: 8px; height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+  .hero-badge-dot::after {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(2.5); opacity: 0; }
   }
   .hero h1 {
     font-size: clamp(2.8rem, 8vw, 5.2rem);
@@ -423,7 +443,7 @@
   .badge-amber { background: #FFFBEB; color: #D97706; }
 
   /* ─── SECTION COMMONS ─── */
-  section { padding: 100px 5%; }
+  section { padding: 80px 5%; }
   .section-label {
     display: inline-block;
     font-size: 0.75rem;
@@ -450,7 +470,112 @@
   }
   .text-center { text-align: center; margin-left: auto; margin-right: auto; }
 
-  .role-section { background: var(--bg2); padding: 120px 5%; }
+  .hero-cta, .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-cta { margin-bottom: 64px; }
+  .cta-actions { margin-top: 40px; }
+
+  .role-section { background: var(--bg2); padding: 80px 5% 60px; }
+  .role-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .role-tab {
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: #fff;
+    border: 1px solid var(--border);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .role-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .role-tab.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 10px 20px rgba(79,70,229,0.2);
+  }
+
+  .role-content {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease;
+  }
+  .role-content.active { display: grid; }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .role-feature-list { display: flex; flex-direction: column; gap: 32px; }
+  .role-feature { display: flex; gap: 20px; }
+  .role-feature-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .role-feature h4 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .role-feature p { font-size: 0.95rem; color: var(--text2); line-height: 1.6; }
+  
+  .role-demo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .role-demo-link:hover { gap: 12px; }
+
+  .role-visual {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(15,23,42,0.05);
+  }
+  .role-visual-title {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .role-visual-title::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
   .feature-tag {
     display: inline-block;
     padding: 4px 12px;
@@ -466,11 +591,15 @@
   .hidden-modules {
     display: none;
     opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
     transform: translateY(10px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .hidden-modules.active {
     display: grid;
+    max-height: none;
     margin-top: 32px;
     opacity: 1;
     transform: translateY(0);
@@ -480,6 +609,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
+    margin-bottom: 0;
   }
   .feature-card {
     background: #fff;
@@ -562,7 +692,7 @@
     border-radius: var(--radius-lg);
     padding: 28px;
   }
-  .stars { color: #FBBF24; margin-bottom: 14px; font-size: 0.9rem; letter-spacing: 2px; }
+  .stars { color: #FBBF24; margin-bottom: 14px; font-size: 0.8rem; display: flex; gap: 4px; }
   .testimonial-text {
     font-size: 0.925rem;
     color: var(--text2);
@@ -679,8 +809,7 @@
     color: var(--teal);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 800;
+    font-size: 0.7rem;
     flex-shrink: 0;
   }
 
@@ -776,7 +905,8 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .role-content.active { grid-template-columns: 1fr; }
+    .role-content { grid-template-columns: 1fr; gap: 40px; }
+    .role-visual { order: -1; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .dashboard-inner { grid-template-columns: 1fr; height: auto; }
     .dash-sidebar { display: none; }
@@ -784,6 +914,8 @@
   }
   @media (max-width: 600px) {
     section { padding: 70px 5%; }
+    .hero-cta, .cta-actions { flex-direction: column; gap: 12px; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .btn-hero-primary, .btn-hero-ghost { width: 100%; justify-content: center; }
     .hero-stats { gap: 24px; }
     .hero-stat-sep { display: none; }
     .footer-grid { grid-template-columns: 1fr; }
@@ -831,7 +963,7 @@
     <div class="hero-cta fade-up delay-3">
       <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="btn-hero-primary">Start Building Free</a>
       <a href="#" class="btn-hero-ghost">
-        <span class="play-icon">▶</span>
+        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
         Watch 2-min Demo
       </a>
     </div>
@@ -881,7 +1013,7 @@
         <div class="dash-nav-item"><span class="dash-icon"></span>Settings</div>
       </div>
       <div class="dash-main">
-        <div class="dash-greeting">Good morning, Admin 👋</div>
+        <div class="dash-greeting">Good morning, Admin <i class="fa-solid fa-hand" style="color: #FFBD2E; font-size: 1.2rem;"></i></div>
         <div class="dash-sub">Here's what's happening in your academy today.</div>
         <div class="dash-cards">
           <div class="dash-card">
@@ -944,6 +1076,163 @@
   </div>
 </div>
 
+<!-- ROLE SECTION -->
+<section class="role-section">
+  <div class="text-center">
+    <span class="section-label">Built for everyone</span>
+    <h2 class="section-title text-center">Clear dashboards for admins, teachers &amp; students</h2>
+    <p class="section-sub text-center">Every role gets a purpose-built workspace. No clutter, no confusion.</p>
+  </div>
+
+  <div class="role-tabs">
+    <button class="role-tab active" onclick="switchRole('admin', this)">Admin</button>
+    <button class="role-tab" onclick="switchRole('tutor', this)">Tutor</button>
+    <button class="role-tab" onclick="switchRole('student', this)">Student</button>
+  </div>
+
+  <div id="role-admin" class="role-content active">
+    <div class="role-feature-list">
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-credit-card"></i></div>
+        <div class="role-feature-text">
+          <h4>Global Fee &amp; Split Payment Processing</h4>
+          <p>Automate invoicing, split revenue with co-teachers, and manage coupon campaigns — all from one place.</p>
+        </div>
+      </div>
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-users-gear"></i></div>
+        <div class="role-feature-text">
+          <h4>Multi-Tutor Orchestration</h4>
+          <p>Assign multiple instructors to any batch, manage permissions, and enable seamless co-teaching workflows.</p>
+        </div>
+      </div>
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <div class="role-feature-text">
+          <h4>Advanced Analytics &amp; Reports</h4>
+          <p>Track enrollments, revenue, completion rates, and quiz performance with exportable dashboards.</p>
+        </div>
+      </div>
+      <a href="https://slategrey-trout-786905.hostingersite.com/demo/public/auto-login/admin" class="role-demo-link" target="_blank">Open Admin Console <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="role-visual">
+      <div class="role-visual-title">Academy Control Panel</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="background:var(--bg3);border-radius:8px;padding:14px;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.85rem;color:var(--text2)">Academy Share (60%)</span>
+          <span style="font-family:'Sora',sans-serif;font-weight:700;color:var(--teal)">₹7,470</span>
+        </div>
+        <div style="background:var(--bg3);border-radius:8px;padding:14px;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.85rem;color:var(--text2)">Lead Trainer Share (30%)</span>
+          <span style="font-family:'Sora',sans-serif;font-weight:700;color:var(--accent2)">₹3,735</span>
+        </div>
+        <div style="background:var(--bg3);border-radius:8px;padding:14px;display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:0.85rem;color:var(--text2)">Co-Tutor Share (10%)</span>
+          <span style="font-family:'Sora',sans-serif;font-weight:700;color:var(--text2)">₹1,245</span>
+        </div>
+        <div style="background:rgba(59,125,255,0.06);border:1px solid rgba(59,125,255,0.15);border-radius:8px;padding:12px;margin-top:4px;display:flex;align-items:center;gap:10px">
+          <i class="fa-solid fa-circle-check" style="color:var(--accent2);font-size:0.9rem"></i>
+          <span style="font-size:0.78rem;color:var(--accent2)">EDU20 · Stripe sync enabled</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="role-tutor" class="role-content">
+    <div class="role-feature-list">
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="role-feature-text">
+          <h4>Real-time Live Class Sync</h4>
+          <p>Seamlessly run live sessions with Zoom or Google Meet, with auto-recording and instant replay access.</p>
+        </div>
+      </div>
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-clipboard-user"></i></div>
+        <div class="role-feature-text">
+          <h4>Automated Attendance Tracking</h4>
+          <p>Know who joined, how long they stayed, and get instant reports without ever taking roll call.</p>
+        </div>
+      </div>
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-folder-tree"></i></div>
+        <div class="role-feature-text">
+          <h4>Content &amp; PDF Asset Management</h4>
+          <p>Upload videos, PDFs, and notes. Organize your course content with an intuitive drag-and-drop builder.</p>
+        </div>
+      </div>
+      <a href="https://slategrey-trout-786905.hostingersite.com/demo/public/auto-login/tutor" class="role-demo-link" target="_blank">Open Tutor Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="role-visual">
+      <div class="role-visual-title">Live Session Dashboard</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:var(--bg3);border-radius:8px;padding:14px">
+          <div style="font-size:0.78rem;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em">Web Systems Batch — Live</div>
+          <div style="display:flex;gap:20px">
+            <div><div style="font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:var(--text)">98%</div><div style="font-size:0.72rem;color:var(--text3)">Present</div></div>
+            <div><div style="font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal)">1,420</div><div style="font-size:0.72rem;color:var(--text3)">Active</div></div>
+            <div><div style="font-family:'Sora',sans-serif;font-size:1.6rem;font-weight:800;color:var(--accent2)">32</div><div style="font-size:0.72rem;color:var(--text3)">Batches</div></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:var(--bg3);border-radius:8px;padding:12px;display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white">AR</div><span style="font-size:0.85rem;color:var(--text)">Alex Rivers</span></div>
+            <span style="font-size:0.78rem;color:var(--teal)"><i class="fa-solid fa-circle" style="font-size:6px;vertical-align:middle;margin-right:4px"></i> Active</span>
+          </div>
+          <div style="background:var(--bg3);border-radius:8px;padding:12px;display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px"><div style="width:28px;height:28px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:white">SJ</div><span style="font-size:0.85rem;color:var(--text)">Sarah Jenkins</span></div>
+            <span style="font-size:0.78rem;color:var(--accent2)"><i class="fa-solid fa-circle" style="font-size:6px;vertical-align:middle;margin-right:4px"></i> Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="role-student" class="role-content">
+    <div class="role-feature-list">
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-clapperboard"></i></div>
+        <div class="role-feature-text">
+          <h4>High-Def Live &amp; Recorded Content</h4>
+          <p>Watch live lectures or catch up on recordings at your pace. Crisp HD quality, no buffering.</p>
+        </div>
+      </div>
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-award"></i></div>
+        <div class="role-feature-text">
+          <h4>Verified LinkedIn Certificate Sync</h4>
+          <p>Earn verified certificates and post them directly to your LinkedIn profile in one click.</p>
+        </div>
+      </div>
+      <div class="role-feature">
+        <div class="role-feature-icon"><i class="fa-solid fa-stairs"></i></div>
+        <div class="role-feature-text">
+          <h4>Personal Portfolio &amp; Growth Path</h4>
+          <p>Track your learning journey, celebrate milestones, and build a portfolio that showcases your growth.</p>
+        </div>
+      </div>
+      <a href="https://slategrey-trout-786905.hostingersite.com/demo/public/auto-login/student" class="role-demo-link" target="_blank">Enter Student Hub <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="role-visual">
+      <div class="role-visual-title">Student Learning Hub</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="background:var(--bg3);border-radius:8px;padding:14px">
+          <div style="font-size:0.78rem;color:var(--text3);margin-bottom:8px">Current Course Progress</div>
+          <div style="font-size:0.9rem;font-weight:600;color:var(--text);margin-bottom:8px">Web Systems Mastery</div>
+          <div style="background:var(--surface2);border-radius:100px;height:6px;overflow:hidden">
+            <div style="background:var(--accent);height:100%;width:68%;border-radius:100px"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:6px"><span style="font-size:0.75rem;color:var(--text3)">68% complete</span><span style="font-size:0.75rem;color:var(--accent2)">14 / 20 lessons</span></div>
+        </div>
+        <div style="background:rgba(15,207,179,0.06);border:1px solid rgba(15,207,179,0.15);border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+          <i class="fa-solid fa-medal" style="font-size:1.4rem;color:#FBBF24"></i>
+          <div><div style="font-size:0.85rem;font-weight:600;color:var(--text)">Certificate Ready!</div><div style="font-size:0.75rem;color:var(--teal)">Sync to LinkedIn instantly</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PLATFORM CAPABILITIES -->
 <section id="capabilities" class="role-section">
   <div class="text-center">
@@ -956,7 +1245,7 @@
     <!-- Feature 1: Multi-Tutor -->
     <div class="feature-card">
       <div class="feature-tag">For Scaling</div>
-      <div class="feature-icon fi-purple">👥</div>
+      <div class="feature-icon fi-purple"><i class="fa-solid fa-users"></i></div>
       <h3>Multi-Tutor Orchestration</h3>
       <p>Assign multiple trainers to a single batch. Perfect for co-teaching models, guest lectures, and ensuring your classes never stop even if one tutor is away.</p>
     </div>
@@ -964,7 +1253,7 @@
     <!-- Feature 2: LinkedIn Certs -->
     <div class="feature-card">
       <div class="feature-tag">For Students</div>
-      <div class="feature-icon fi-blue">🏅</div>
+      <div class="feature-icon fi-blue"><i class="fa-solid fa-certificate"></i></div>
       <h3>LinkedIn Certificate Sync</h3>
       <p>1-Click professional sharing. Students can post verified completion certificates directly to their LinkedIn feeds, driving organic growth for your brand.</p>
     </div>
@@ -972,7 +1261,7 @@
     <!-- Feature 3: Attendance Audit -->
     <div class="feature-card">
       <div class="feature-tag">For Efficiency</div>
-      <div class="feature-icon fi-green">⏱️</div>
+      <div class="feature-icon fi-green"><i class="fa-solid fa-clock"></i></div>
       <h3>Automated Attendance Audit</h3>
       <p>Zero manual roll calls. Track exactly when students join, how long they stay active, and export detailed engagement reports instantly.</p>
     </div>
@@ -980,7 +1269,7 @@
     <!-- Feature 4: Smart Coupons -->
     <div class="feature-card">
       <div class="feature-tag">For Security</div>
-      <div class="feature-icon fi-pink">🎫</div>
+      <div class="feature-icon fi-pink"><i class="fa-solid fa-ticket"></i></div>
       <h3>Student-Specific Coupons</h3>
       <p>Prevent discount leaks. Generate secure promo codes strictly linked to unique student accounts, ensuring your scholarship models stay private.</p>
     </div>
@@ -988,7 +1277,7 @@
     <!-- Feature 5: Live Engine -->
     <div class="feature-card">
       <div class="feature-tag">For Teaching</div>
-      <div class="feature-icon fi-amber">🎥</div>
+      <div class="feature-icon fi-amber"><i class="fa-solid fa-video"></i></div>
       <h3>Live Session Engine</h3>
       <p>Seamless Zoom &amp; Google Meet integration. Schedule, host, and record live classes directly through the platform with instant replay for students.</p>
     </div>
@@ -996,7 +1285,7 @@
     <!-- Feature 6: Fee Hub -->
     <div class="feature-card">
       <div class="feature-tag">For Business</div>
-      <div class="feature-icon fi-teal">�</div>
+      <div class="feature-icon fi-teal"><i class="fa-solid fa-indian-rupee-sign"></i></div>
       <h3>Fee Hub &amp; Split Payments</h3>
       <p>Automate invoicing and revenue share. Cross-reference PhonePe payments and automate payouts to co-tutors with clean, exportable bookkeeping.</p>
     </div>
@@ -1006,7 +1295,7 @@
     <!-- Feature 7: Advanced Analytics -->
     <div class="feature-card">
       <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-blue">📊</div>
+      <div class="feature-icon fi-blue"><i class="fa-solid fa-chart-line"></i></div>
       <h3>Advanced Analytics Hub</h3>
       <p>Real-time business metrics tracking active student cohorts, trainer performance, and registration conversion funnels.</p>
     </div>
@@ -1014,7 +1303,7 @@
     <!-- Feature 8: MCQ Assessments -->
     <div class="feature-card">
       <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-green">✍️</div>
+      <div class="feature-icon fi-green"><i class="fa-solid fa-pen-to-square"></i></div>
       <h3>MCQ Assessment Engine</h3>
       <p>Build mandatory assessments with automated grading, time limits, and randomized question banks for secure testing.</p>
     </div>
@@ -1022,7 +1311,7 @@
     <!-- Feature 9: Admissions Pipeline -->
     <div class="feature-card">
       <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-amber">📝</div>
+      <div class="feature-icon fi-amber"><i class="fa-solid fa-file-invoice"></i></div>
       <h3>Admissions Pipeline</h3>
       <p>Audit and verify multi-step admission forms with manual override to route accepted students into active cohorts.</p>
     </div>
@@ -1030,7 +1319,7 @@
     <!-- Feature 10: Watch-Time Tracking -->
     <div class="feature-card">
       <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-pink">📈</div>
+      <div class="feature-icon fi-pink"><i class="fa-solid fa-chart-bar"></i></div>
       <h3>Watch-Time Analytics</h3>
       <p>Detailed engagement reports showing exactly which students watched recorded classes and for how long.</p>
     </div>
@@ -1038,7 +1327,7 @@
     <!-- Feature 11: Curriculum Builder -->
     <div class="feature-card">
       <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-blue">📚</div>
+      <div class="feature-icon fi-blue"><i class="fa-solid fa-book"></i></div>
       <h3>Recorded Course Management</h3>
       <p>Drag-and-drop sequencing for recorded lessons and YouTube-hosted video frameworks with an intuitive builder.</p>
     </div>
@@ -1046,7 +1335,7 @@
     <!-- Feature 12: Asset Management -->
     <div class="feature-card">
       <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-teal">📁</div>
+      <div class="feature-icon fi-teal"><i class="fa-solid fa-folder-open"></i></div>
       <h3>Digital Asset Management</h3>
       <p>Centralized hub for uploading and linking PDFs, worksheets, and slide decks directly to specific lessons.</p>
     </div>
@@ -1054,7 +1343,7 @@
     <!-- Feature 13: Progress Tracking -->
     <div class="feature-card">
       <div class="feature-tag">Student</div>
-      <div class="feature-icon fi-purple">💻</div>
+      <div class="feature-icon fi-purple"><i class="fa-solid fa-laptop-code"></i></div>
       <h3>Visual Progress Tracking</h3>
       <p>Dynamic progress bars and milestone markers that help students stay motivated and on track with their learning.</p>
     </div>
@@ -1062,7 +1351,7 @@
     <!-- Feature 14: Course Registry -->
     <div class="feature-card">
       <div class="feature-tag">Student</div>
-      <div class="feature-icon fi-blue">🔍</div>
+      <div class="feature-icon fi-blue"><i class="fa-solid fa-magnifying-glass"></i></div>
       <h3>Interactive Course Registry</h3>
       <p>Advanced search engine for browsing published courses, modules, and trainer profiles before applying.</p>
     </div>
@@ -1070,7 +1359,7 @@
     <!-- Feature 15: Resource Monitoring -->
     <div class="feature-card">
       <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-teal">⚙️</div>
+      <div class="feature-icon fi-teal"><i class="fa-solid fa-gears"></i></div>
       <h3>Resource Monitoring</h3>
       <p>Central dashboard to monitor storage limits, database health, and API usage for Zoom and PhonePe.</p>
     </div>
@@ -1078,13 +1367,13 @@
     <!-- Feature 16: User Controls -->
     <div class="feature-card">
       <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-purple">🔒</div>
+      <div class="feature-icon fi-purple"><i class="fa-solid fa-user-shield"></i></div>
       <h3>System User Controls</h3>
       <p>Full administrative rights for password resets, account locking, and trainer permission management.</p>
     </div>
   </div>
 
-  <div class="text-center" style="margin-top: 48px;">
+  <div class="text-center" style="margin-top: 24px;">
     <button onclick="toggleModules(this)" class="btn-hero-primary" id="explore-btn">Explore All 15+ Modules</button>
   </div>
 </section>
@@ -1097,15 +1386,15 @@
     <p class="section-sub text-center">Connect instantly to top virtual meeting platforms and secure payment processors.</p>
   </div>
   <div class="integrations-grid">
-    <div class="integration-pill"><span class="integration-pill-icon">🎥</span>Zoom</div>
-    <div class="integration-pill"><span class="integration-pill-icon">📹</span>Google Meet</div>
-    <div class="integration-pill"><span class="integration-pill-icon">🏫</span>Google Classroom</div>
-    <div class="integration-pill"><span class="integration-pill-icon">💳</span>PayPal</div>
-    <div class="integration-pill"><span class="integration-pill-icon">📱</span>PhonePe</div>
-    <div class="integration-pill"><span class="integration-pill-icon">💸</span>Razorpay</div>
-    <div class="integration-pill"><span class="integration-pill-icon">💳</span>Stripe</div>
-    <div class="integration-pill"><span class="integration-pill-icon">🔗</span>LinkedIn</div>
-    <div class="integration-pill"><span class="integration-pill-icon">🤖</span>OpenAI</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-solid fa-video"></i></span>Zoom</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-solid fa-camera"></i></span>Google Meet</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-solid fa-school"></i></span>Google Classroom</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-brands fa-paypal"></i></span>PayPal</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-solid fa-mobile-screen"></i></span>PhonePe</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-solid fa-money-bill-transfer"></i></span>Razorpay</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-brands fa-stripe"></i></span>Stripe</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-brands fa-linkedin"></i></span>LinkedIn</div>
+    <div class="integration-pill"><span class="integration-pill-icon"><i class="fa-solid fa-robot"></i></span>OpenAI</div>
   </div>
 </section>
 
@@ -1118,7 +1407,13 @@
   </div>
   <div class="testimonials-grid">
     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
       <p class="testimonial-text">"Switching to LMS Pro reduced our operational overhead by 40%. The multi-tutor assignment and automated fee splits changed how we manage our entire coding boot camp."</p>
       <div class="testimonial-author">
         <div class="t-avatar" style="background:var(--accent)">AR</div>
@@ -1129,7 +1424,13 @@
       </div>
     </div>
     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
       <p class="testimonial-text">"The Course Builder and dynamic Quiz features keep our students highly engaged. Having everything — including low-latency live lectures — in one custom white-labeled app is incredible."</p>
       <div class="testimonial-author">
         <div class="t-avatar" style="background:var(--teal)">SJ</div>
@@ -1140,7 +1441,13 @@
       </div>
     </div>
     <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
+      <div class="stars">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
       <p class="testimonial-text">"LinkedIn certificate syncing is a huge selling point for our professional programs. Students love showing off their verified accomplishments the moment they complete a course."</p>
       <div class="testimonial-author">
         <div class="t-avatar" style="background:#A78BFA">MK</div>
@@ -1171,11 +1478,11 @@
       </div>
       <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="pricing-btn pricing-btn-ghost">Get Started</a>
       <ul class="pricing-features">
-        <li><span class="check-icon">✓</span>Up to 100 students</li>
-        <li><span class="check-icon">✓</span>Course builder &amp; quiz builder</li>
-        <li><span class="check-icon">✓</span>Live classes (Zoom/Meet)</li>
-        <li><span class="check-icon">✓</span>Basic analytics</li>
-        <li><span class="check-icon">✓</span>Email support</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Up to 100 students</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Course builder &amp; quiz builder</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Live classes (Zoom/Meet)</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Basic analytics</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Email support</li>
       </ul>
     </div>
     <div class="pricing-card featured">
@@ -1189,13 +1496,13 @@
       </div>
       <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="pricing-btn pricing-btn-primary">Get Started</a>
       <ul class="pricing-features">
-        <li><span class="check-icon">✓</span>Unlimited students</li>
-        <li><span class="check-icon">✓</span>Multi-tutor &amp; co-teaching</li>
-        <li><span class="check-icon">✓</span>Fee Hub &amp; split payments</li>
-        <li><span class="check-icon">✓</span>Smart attendance tracking</li>
-        <li><span class="check-icon">✓</span>Course bundles</li>
-        <li><span class="check-icon">✓</span>LinkedIn certificate sync</li>
-        <li><span class="check-icon">✓</span>Priority support</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Unlimited students</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Multi-tutor &amp; co-teaching</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Fee Hub &amp; split payments</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Smart attendance tracking</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Course bundles</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>LinkedIn certificate sync</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Priority support</li>
       </ul>
     </div>
     <div class="pricing-card">
@@ -1206,11 +1513,11 @@
       </div>
       <a href="#" class="pricing-btn pricing-btn-ghost">Contact Sales</a>
       <ul class="pricing-features">
-        <li><span class="check-icon">✓</span>Everything in Academy</li>
-        <li><span class="check-icon">✓</span>White-label branding</li>
-        <li><span class="check-icon">✓</span>Custom integrations</li>
-        <li><span class="check-icon">✓</span>Dedicated account manager</li>
-        <li><span class="check-icon">✓</span>SLA &amp; uptime guarantee</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Everything in Academy</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>White-label branding</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Custom integrations</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Dedicated account manager</li>
+        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>SLA &amp; uptime guarantee</li>
       </ul>
     </div>
   </div>
@@ -1225,7 +1532,7 @@
     <div class="cta-actions">
       <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="btn-hero-primary">Start Building Now</a>
       <a href="https://slategrey-trout-786905.hostingersite.com/" class="btn-hero-ghost">
-        <span class="play-icon">▶</span>
+        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
         Watch Demo
       </a>
     </div>
@@ -1239,10 +1546,10 @@
       <a class="nav-logo" href="#">LMS<span>PRO</span></a>
       <p>The complete platform for modern education. Grow your academy without the stress.</p>
       <div class="footer-socials">
-        <a href="#" class="social-btn">𝕏</a>
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">▶</a>
-        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -1278,7 +1585,7 @@
   </div>
   <div class="footer-bottom">
     <p>© 2026 LMS Pro SaaS | Powered by <a href="https://task19.com" target="_blank">Task19</a>. All rights reserved.</p>
-    <p>Made with ❤️ for educators</p>
+    <p>Made with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> for educators</p>
   </div>
 </footer>
 
@@ -1314,6 +1621,17 @@
         }
       }, 500);
     }
+  }
+
+  // Switch Role Logic
+  function switchRole(role, btn) {
+    // Update tabs
+    document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Update content
+    document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
+    document.getElementById(`role-${role}`).classList.add('active');
   }
 </script>
 
