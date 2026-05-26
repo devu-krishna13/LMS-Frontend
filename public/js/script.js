@@ -28,9 +28,9 @@ const contents = document.querySelectorAll('.module-content');
 const moduleImg = document.getElementById('module-img');
 
 const imageMap = {
-    admin: 'assets/Modules/premium_admin.png',
-    tutor: 'assets/Modules/premium_trainer.png',
-    student: 'assets/Modules/premium_student.png'
+    admin: 'assets/Demo/demo1.png',
+    tutor: 'assets/Demo/demo6.png',
+    student: 'assets/Demo/demo11.png'
 };
 
 tabs.forEach(tab => {
@@ -45,10 +45,11 @@ tabs.forEach(tab => {
         });
 
         // Update central image with animation
+        const newSrc = tab.getAttribute('data-image') || imageMap[target];
         moduleImg.style.opacity = '0';
         moduleImg.style.transform = 'translateY(20px)';
         setTimeout(() => {
-            moduleImg.src = imageMap[target];
+            moduleImg.src = newSrc;
             moduleImg.style.opacity = '1';
             moduleImg.style.transform = 'translateY(0)';
         }, 300);
