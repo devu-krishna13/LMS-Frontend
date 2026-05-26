@@ -911,6 +911,7 @@
     .dashboard-inner { grid-template-columns: 1fr; height: auto; }
     .dash-sidebar { display: none; }
     .dash-cards { grid-template-columns: repeat(2,1fr); }
+    .dash-grid2 { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     section { padding: 70px 5%; }
@@ -918,9 +919,28 @@
     .btn-hero-primary, .btn-hero-ghost { width: 100%; justify-content: center; }
     .hero-stats { gap: 24px; }
     .hero-stat-sep { display: none; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .dash-cards { grid-template-columns: repeat(2,1fr); }
-  }
+    
+    /* Footer Fix: Platform & Company in same row */
+    .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .footer-brand { grid-column: span 2; margin-bottom: 20px; }
+    
+    /* Dashboard Mobile Fix */
+    .dashboard-preview { padding-bottom: 60px; }
+    .dashboard-topbar { padding: 10px 15px; gap: 6px; }
+    .dashboard-url { margin: 0 10px; font-size: 0.75rem; padding: 4px 0; }
+    .dot { width: 8px; height: 8px; }
+    .dash-main { padding: 20px; }
+     .dash-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+     .dash-card { padding: 12px; }
+     .dash-card-label { font-size: 0.65rem; }
+     .dash-card-val { font-size: 1.2rem; }
+     .dash-card-delta { font-size: 0.65rem; }
+     .dash-grid2 { gap: 15px; }
+     .dash-chart-box { padding: 15px; }
+     .chart-bars { height: 80px; gap: 6px; }
+     .dash-recent-item { padding: 6px; }
+     .dash-avatar { width: 28px; height: 28px; font-size: 0.7rem; }
+   }
 </style>
 </head>
 <body>
