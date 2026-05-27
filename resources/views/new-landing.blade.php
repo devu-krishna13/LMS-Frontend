@@ -1275,7 +1275,7 @@
       <div class="feature-tag">For Students</div>
       <div class="feature-icon fi-blue"><i class="fa-solid fa-certificate"></i></div>
       <h3>LinkedIn Certificate Sync</h3>
-      <p>1-Click professional sharing. Students can post verified completion certificates directly to their LinkedIn feeds, driving organic growth for your brand.</p>
+      <p>One-click professional sharing. Students can post verified completion certificates directly to their LinkedIn feeds, driving organic growth for your brand.</p>
     </div>
 
     <!-- Feature 3: Attendance Audit -->
@@ -1283,7 +1283,7 @@
       <div class="feature-tag">For Efficiency</div>
       <div class="feature-icon fi-green"><i class="fa-solid fa-clock"></i></div>
       <h3>Automated Attendance Audit</h3>
-      <p>Zero manual roll calls. Track exactly when students join, how long they stay active, and export detailed engagement reports instantly.</p>
+      <p>Zero manual roll calls. Track exactly when students join and export detailed engagement reports instantly for both live sessions and recorded classes.</p>
     </div>
 
     <!-- Feature 4: Smart Coupons -->
@@ -1299,7 +1299,7 @@
       <div class="feature-tag">For Teaching</div>
       <div class="feature-icon fi-amber"><i class="fa-solid fa-video"></i></div>
       <h3>Live Session Engine</h3>
-      <p>Seamless Zoom &amp; Google Meet integration. Schedule, host, and record live classes directly through the platform with instant replay for students.</p>
+      <p>Seamless Zoom &amp; Google Meet integration. Schedule and host live classes through the platform, with instant replay available for students who missed them.</p>
     </div>
 
     <!-- Feature 6: Fee Hub -->
@@ -1307,7 +1307,7 @@
       <div class="feature-tag">For Business</div>
       <div class="feature-icon fi-teal"><i class="fa-solid fa-indian-rupee-sign"></i></div>
       <h3>Fee Hub &amp; Split Payments</h3>
-      <p>Automate invoicing and revenue share. Cross-reference PhonePe payments and automate payouts to co-tutors with clean, exportable bookkeeping.</p>
+      <p>Automate invoicing and split payments. Cross-reference PhonePe payments and automate payouts with clean, exportable bookkeeping.</p>
     </div>
   </div>
 
@@ -1317,7 +1317,7 @@
       <div class="feature-tag">Admin</div>
       <div class="feature-icon fi-blue"><i class="fa-solid fa-chart-line"></i></div>
       <h3>Advanced Analytics Hub</h3>
-      <p>Real-time business metrics tracking active student cohorts, trainer performance, and registration conversion funnels.</p>
+      <p>Track real-time business metrics across active student cohorts, trainer performance, and registration conversion funnels.</p>
     </div>
 
     <!-- Feature 8: MCQ Assessments -->
@@ -1333,7 +1333,7 @@
       <div class="feature-tag">Admin</div>
       <div class="feature-icon fi-amber"><i class="fa-solid fa-file-invoice"></i></div>
       <h3>Admissions Pipeline</h3>
-      <p>Audit and verify multi-step admission forms with manual override to route accepted students into active cohorts.</p>
+      <p>Audit and verify multi-step admissions forms with manual approval to route accepted students into active cohorts.</p>
     </div>
 
     <!-- Feature 10: Watch-Time Tracking -->
@@ -1341,16 +1341,16 @@
       <div class="feature-tag">Trainer</div>
       <div class="feature-icon fi-pink"><i class="fa-solid fa-chart-bar"></i></div>
       <h3>Watch-Time Analytics</h3>
-      <p>Detailed engagement reports showing exactly which students watched recorded classes and for how long.</p>
+      <p>Detailed engagement reports showing exactly which students watched recorded classes, how much they completed, and where they dropped off.</p>
     </div>
 
     <!-- Feature 11: Curriculum Builder -->
-    <div class="feature-card">
+    <!-- <div class="feature-card">
       <div class="feature-tag">Trainer</div>
       <div class="feature-icon fi-blue"><i class="fa-solid fa-book"></i></div>
       <h3>Recorded Course Management</h3>
       <p>Drag-and-drop sequencing for recorded lessons and YouTube-hosted video frameworks with an intuitive builder.</p>
-    </div>
+    </div> -->
 
     <!-- Feature 12: Asset Management -->
     <div class="feature-card">
@@ -1365,15 +1365,15 @@
       <div class="feature-tag">Student</div>
       <div class="feature-icon fi-purple"><i class="fa-solid fa-laptop-code"></i></div>
       <h3>Visual Progress Tracking</h3>
-      <p>Dynamic progress bars and milestone markers that help students stay motivated and on track with their learning.</p>
+      <p>Dynamic progress bars and milestone markers that help students stay motivated and on track throughout their coursework.</p>
     </div>
 
-    <!-- Feature 14: Course Registry -->
+    <!-- Feature 14: Assignment Submissions -->
     <div class="feature-card">
       <div class="feature-tag">Student</div>
-      <div class="feature-icon fi-blue"><i class="fa-solid fa-magnifying-glass"></i></div>
-      <h3>Interactive Course Registry</h3>
-      <p>Advanced search engine for browsing published courses, modules, and trainer profiles before applying.</p>
+      <div class="feature-icon fi-blue"><i class="fa-solid fa-file-arrow-up"></i></div>
+      <h3>Assignment Submissions</h3>
+      <p>Students can upload and submit assignments directly through the platform, with status tracking and trainer feedback on each submission.</p>
     </div>
 
     <!-- Feature 15: Resource Monitoring -->
