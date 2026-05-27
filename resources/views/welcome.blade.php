@@ -456,6 +456,105 @@
         </div>
     </section>
 
+    <!-- 6 Pillars Section -->
+    <section class="pillars-section" style="padding: 100px 0; background: #F8FAFC;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;" data-premium-reveal>
+                <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.1em; display: block; margin-bottom: 0.5rem;">Core Features</span>
+                <h2 style="font-size: 3rem; margin-bottom: 1rem; color: #0F172A; font-weight: 800;">The 6 Pillars of a Premium Academy</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Everything you need to deliver an exceptional learning experience.</p>
+            </div>
+            
+            <style>
+                .pillars-grid {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 1.5rem;
+                }
+                .pillar-card {
+                    background: #FFFFFF;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 12px;
+                    padding: 1.5rem 1rem;
+                    text-align: center;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .pillar-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+                    border-color: rgba(59, 130, 246, 0.3);
+                }
+                .pillar-icon {
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 auto 1rem;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.5rem;
+                }
+                .pillar-title {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    color: #0F172A;
+                    margin-bottom: 0.5rem;
+                }
+                .pillar-desc {
+                    font-size: 0.85rem;
+                    color: var(--text-muted);
+                    line-height: 1.4;
+                }
+                @media (max-width: 992px) {
+                    .pillars-grid { grid-template-columns: repeat(3, 1fr); }
+                }
+                @media (max-width: 768px) {
+                    .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 480px) {
+                    .pillars-grid { grid-template-columns: 1fr; }
+                }
+            </style>
+
+            <div class="pillars-grid" data-premium-reveal>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(59, 130, 246, 0.1); color: #3B82F6;"><i class="fas fa-book-open"></i></div>
+                    <div class="pillar-title">Course Builder</div>
+                    <div class="pillar-desc">Create modular courses with videos and documents.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981;"><i class="fas fa-video"></i></div>
+                    <div class="pillar-title">Live Classes</div>
+                    <div class="pillar-desc">Host interactive sessions directly with students.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;"><i class="fas fa-question-circle"></i></div>
+                    <div class="pillar-title">Quizzes & Tests</div>
+                    <div class="pillar-desc">Automated assessments to track student progress.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(236, 72, 153, 0.1); color: #EC4899;"><i class="fas fa-wallet"></i></div>
+                    <div class="pillar-title">Fee Management</div>
+                    <div class="pillar-desc">Collect payments and split revenues easily.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;"><i class="fas fa-chart-line"></i></div>
+                    <div class="pillar-title">Smart Analytics</div>
+                    <div class="pillar-desc">Detailed reports on performance and attendance.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" style="background: rgba(14, 165, 233, 0.1); color: #0EA5E9;"><i class="fas fa-award"></i></div>
+                    <div class="pillar-title">Certifications</div>
+                    <div class="pillar-desc">Issue verifiable credentials upon completion.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Integrations Section -->
     <section class="integrations-section">
         <div class="container">

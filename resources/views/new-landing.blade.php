@@ -600,6 +600,7 @@
   .hidden-modules.active {
     display: grid;
     max-height: none;
+    overflow: visible;
     margin-top: 32px;
     opacity: 1;
     transform: translateY(0);
@@ -1489,58 +1490,151 @@
   </div>
   <div class="pricing-cards">
     <div class="pricing-card">
-      <div class="pricing-plan-name">Starter</div>
-      <div class="pricing-plan-desc">For new academies getting started</div>
+      <div class="pricing-plan-name">Free</div>
+      <div class="pricing-plan-desc">For exploring the platform</div>
       <div class="pricing-amount">
-        <span class="currency">₹</span>
-        <span class="price">1,999</span>
+        <span class="currency">$</span>
+        <span class="price">0</span>
         <span class="period">/month</span>
       </div>
-      <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="pricing-btn pricing-btn-ghost">Get Started</a>
-      <ul class="pricing-features">
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Up to 100 students</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Course builder &amp; quiz builder</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Live classes (Zoom/Meet)</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Basic analytics</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Email support</li>
-      </ul>
+      <a href="#" class="pricing-btn pricing-btn-ghost">Get Started</a>
     </div>
+    
+    <div class="pricing-card">
+      <div class="pricing-plan-name">Starter</div>
+      <div class="pricing-plan-desc">For new academies</div>
+      <div class="pricing-amount">
+        <span class="currency">$</span>
+        <span class="price">19</span>
+        <span class="period">/month</span>
+      </div>
+      <a href="#" class="pricing-btn pricing-btn-ghost">Get Started</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-plan-name">Growth</div>
+      <div class="pricing-plan-desc">For growing academies</div>
+      <div class="pricing-amount">
+        <span class="currency">$</span>
+        <span class="price">49</span>
+        <span class="period">/month</span>
+      </div>
+      <a href="#" class="pricing-btn pricing-btn-ghost">Get Started</a>
+    </div>
+
     <div class="pricing-card featured">
       <div class="popular-badge">Most Popular</div>
       <div class="pricing-plan-name">Academy</div>
-      <div class="pricing-plan-desc">For growing academies with multiple tutors</div>
+      <div class="pricing-plan-desc">For established institutions</div>
       <div class="pricing-amount">
-        <span class="currency">₹</span>
-        <span class="price">4,999</span>
+        <span class="currency">$</span>
+        <span class="price">99</span>
         <span class="period">/month</span>
       </div>
-      <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="pricing-btn pricing-btn-primary">Get Started</a>
-      <ul class="pricing-features">
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Unlimited students</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Multi-tutor &amp; co-teaching</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Fee Hub &amp; split payments</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Smart attendance tracking</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Course bundles</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>LinkedIn certificate sync</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Priority support</li>
-      </ul>
+      <a href="#" class="pricing-btn pricing-btn-primary">Get Started</a>
     </div>
+
     <div class="pricing-card">
       <div class="pricing-plan-name">Enterprise</div>
-      <div class="pricing-plan-desc">For large institutions &amp; ed-tech companies</div>
+      <div class="pricing-plan-desc">For large-scale operations</div>
       <div class="pricing-amount">
         <span class="price" style="font-size:2rem;line-height:1.4">Custom</span>
       </div>
       <a href="#" class="pricing-btn pricing-btn-ghost">Contact Sales</a>
-      <ul class="pricing-features">
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Everything in Academy</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>White-label branding</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Custom integrations</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>Dedicated account manager</li>
-        <li><span class="check-icon"><i class="fa-solid fa-check"></i></span>SLA &amp; uptime guarantee</li>
-      </ul>
     </div>
   </div>
+
+  <!-- Comparison Table -->
+  <div class="pricing-table-container">
+    <h3 style="text-align:center; font-size: 2rem; margin: 60px 0 30px; font-weight: 800;">Compare Plans</h3>
+    <div class="table-responsive">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Starter $19/mo</th>
+            <th>Growth $49/mo</th>
+            <th>Academy $99/mo</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Students</td><td>5</td><td>50</td><td>200</td><td>500</td><td>Custom</td></tr>
+          <tr><td>Trainer Accounts</td><td>1</td><td>2</td><td>10</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Courses</td><td>1</td><td>3</td><td>10</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Batches</td><td>1</td><td>5</td><td>20</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Storage</td><td>1 GB</td><td>5 GB</td><td>20 GB</td><td>100 GB</td><td>Custom</td></tr>
+          <tr><td>Live Sessions/mo</td><td>5</td><td>30</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>White-label Cert</td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td></tr>
+          <tr><td>Zoom Integration</td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td></tr>
+          <tr><td>Custom Domain</td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td></tr>
+          <tr><td>Priority Support</td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-xmark" style="color:#EF4444; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td><td><i class="fa-solid fa-check" style="color:#22C55E; font-weight:900; font-size:1.1rem;"></i></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <style>
+    .pricing-table-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      border: 1px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .pricing-table th, .pricing-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-table th {
+      background: var(--bg2);
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .pricing-table td {
+      font-size: 0.95rem;
+      color: var(--text2);
+    }
+    .pricing-table td:first-child {
+      font-weight: 700;
+      color: var(--text);
+      white-space: normal;
+    }
+    .pricing-table tbody tr:hover {
+      background: var(--bg2);
+    }
+    
+    @media (min-width: 1024px) {
+        .pricing-cards {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .pricing-card {
+            padding: 30px 20px;
+        }
+        .price {
+            font-size: 2.5rem;
+        }
+        .pricing-btn {
+            padding: 12px;
+            font-size: 0.95rem;
+        }
+    }
+  </style>
 </section>
 
 <!-- CTA BANNER -->
