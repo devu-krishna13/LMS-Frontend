@@ -963,8 +963,8 @@
     <li><a href="#">Pricing</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="#" class="btn-ghost">Sign In</a>
-    <a href="#" class="btn-primary">Join Now</a>
+    <!-- <a href="#" class="btn-ghost">Sign In</a>
+    <a href="#" class="btn-primary">Join Now</a> -->
   </div>
 </nav>
 
