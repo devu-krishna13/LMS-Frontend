@@ -941,6 +941,13 @@
      .chart-bars { height: 80px; gap: 6px; }
      .dash-recent-item { padding: 6px; }
      .dash-avatar { width: 28px; height: 28px; font-size: 0.7rem; }
+
+     /* Pricing Mobile Fix */
+     .pricing-card { padding: 32px; }
+     .pricing-card.featured { transform: none; box-shadow: none; }
+     .price { font-size: 2.8rem; }
+     .pricing-plan-name { font-size: 1.2rem; }
+     .currency { font-size: 1.2rem; }
    }
 </style>
 </head>
@@ -1497,7 +1504,13 @@
         <span class="price">0</span>
         <span class="period">/month</span>
       </div>
-      <a href="#" class="pricing-btn pricing-btn-ghost">Get Started</a>
+      <ul class="pricing-features" style="margin-bottom: 30px;">
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 5 Students</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 1 Trainer Account</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 1 Course &amp; 1 Batch</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 1 GB Storage</li>
+      </ul>
+      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
     </div>
     
     <div class="pricing-card">
@@ -1508,7 +1521,13 @@
         <span class="price">19</span>
         <span class="period">/month</span>
       </div>
-      <a href="#" class="pricing-btn pricing-btn-ghost">Get Started</a>
+      <ul class="pricing-features" style="margin-bottom: 30px;">
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 50 Students</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 2 Trainer Accounts</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 3 Courses &amp; 5 Batches</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 5 GB Storage</li>
+      </ul>
+      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
     </div>
 
     <div class="pricing-card">
@@ -1519,7 +1538,13 @@
         <span class="price">49</span>
         <span class="period">/month</span>
       </div>
-      <a href="#" class="pricing-btn pricing-btn-ghost">Get Started</a>
+      <ul class="pricing-features" style="margin-bottom: 30px;">
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 200 Students</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 10 Trainer Accounts</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Zoom Integration</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> White-label Cert</li>
+      </ul>
+      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
     </div>
 
     <div class="pricing-card featured">
@@ -1531,7 +1556,13 @@
         <span class="price">99</span>
         <span class="period">/month</span>
       </div>
-      <a href="#" class="pricing-btn pricing-btn-primary">Get Started</a>
+      <ul class="pricing-features" style="margin-bottom: 30px;">
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 500 Students</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Unlimited Trainers</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Unlimited Courses</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Priority Support</li>
+      </ul>
+      <a href="#" class="pricing-btn pricing-btn-primary" style="margin-top: auto;">Get Started</a>
     </div>
 
     <div class="pricing-card">
@@ -1540,7 +1571,13 @@
       <div class="pricing-amount">
         <span class="price" style="font-size:2rem;line-height:1.4">Custom</span>
       </div>
-      <a href="#" class="pricing-btn pricing-btn-ghost">Contact Sales</a>
+      <ul class="pricing-features" style="margin-bottom: 30px;">
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Custom Students</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Custom Domain</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Dedicated Server</li>
+        <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 24/7 Priority Support</li>
+      </ul>
+      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Contact Sales</a>
     </div>
   </div>
 
