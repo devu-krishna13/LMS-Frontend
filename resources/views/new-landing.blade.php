@@ -3,7 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LMS Pro | Everything Your Academy Needs</title>
+<title>Batchwise | Everything Your Academy Needs</title>
+<meta name="description" content="Batchwise is a robust, premium multi-tenant SaaS Learning Management System (LMS) for institutional academies. Manage courses, tutors, schedules, attendance, assignments, online quizzes, fee splitting, and issue verified completion certificates." />
+<meta name="keywords" content="SaaS LMS, multi-tenant LMS, online academy software, course management, quiz builder, student portal, tutor fee split, attendance tracker, Zoom classes" />
+<meta name="author" content="Batchwise" />
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Batchwise | Premium Multi-Tenant SaaS LMS for Academies" />
+<meta property="og:description" content="Launch your virtual academy in seconds. Easily manage courses, batches, online tests, payments, live schedules, and certificates under your own subdomain." />
+<meta property="og:image" content="https://gobatchwise.com/images/seo-banner.png" />
+<meta property="og:url" content="https://gobatchwise.com/" />
+<meta property="og:site_name" content="Batchwise" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Batchwise | Premium Multi-Tenant SaaS LMS for Academies" />
+<meta name="twitter:description" content="Launch your virtual academy in seconds. Easily manage courses, batches, online tests, payments, live schedules, and certificates under your own subdomain." />
+<meta name="twitter:image" content="https://gobatchwise.com/images/seo-banner.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
@@ -77,7 +94,8 @@
     color: var(--text);
     text-decoration: none;
     letter-spacing: -0.04em;
-    display: flex; align-items: center; gap: 8px;
+    display: flex; 
+    align-items: center; 
   }
   .nav-logo span { color: var(--accent); }
   .nav-links {
@@ -124,6 +142,64 @@
     background: var(--accent-hover); 
     transform: translateY(-2px); 
     box-shadow: 0 6px 20px rgba(79,70,229,0.35); 
+  }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 101;
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: all 0.3s ease;
+  }
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 24px 5%;
+    border-bottom: 1px solid var(--border);
+    animation: slideDown 0.3s ease;
+  }
+  .mobile-menu.active {
+    display: block;
+  }
+  .mobile-menu .nav-links {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .mobile-menu .nav-actions {
+    margin-top: 24px;
+    justify-content: flex-start;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* ─── HERO ─── */
@@ -828,6 +904,7 @@
     background: radial-gradient(circle at 70% 30%, rgba(79,70,229,0.15) 0%, transparent 50%),
                 radial-gradient(circle at 30% 70%, rgba(13,148,136,0.1) 0%, transparent 50%);
     opacity: 0.6;
+    pointer-events: none;
   }
   .cta-box h2 {
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -906,6 +983,7 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    .menu-toggle { display: flex; }
     .role-content { grid-template-columns: 1fr; gap: 40px; }
     .role-visual { order: -1; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -941,13 +1019,6 @@
      .chart-bars { height: 80px; gap: 6px; }
      .dash-recent-item { padding: 6px; }
      .dash-avatar { width: 28px; height: 28px; font-size: 0.7rem; }
-
-     /* Pricing Mobile Fix */
-     .pricing-card { padding: 32px; }
-     .pricing-card.featured { transform: none; box-shadow: none; }
-     .price { font-size: 2.8rem; }
-     .pricing-plan-name { font-size: 1.2rem; }
-     .currency { font-size: 1.2rem; }
    }
 </style>
 </head>
@@ -955,18 +1026,35 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">LMS<span>PRO</span></a>
+  <a class="nav-logo" href="#">Batch<span>Wise</span></a>
   <ul class="nav-links">
-    <li><a href="#">Features</a></li>
-    <li><a href="#">Modules</a></li>
-    <li><a href="#">Catalog</a></li>
-    <li><a href="#">Pricing</a></li>
+    <li><a href="#capabilities">Features</a></li>
+    <li><a href="#modules">Modules</a></li>
+    <li><a href="#integrations">Integrations</a></li>
+    <li><a href="#pricing">Pricing</a></li>
   </ul>
   <div class="nav-actions">
-    <!-- <a href="#" class="btn-ghost">Sign In</a>
-    <a href="#" class="btn-primary">Join Now</a> -->
+    <a href="javascript:void(0)" onclick="openOnboarding('free','Free Forever','$0/mo')" class="btn-primary">Start Free</a>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="nav-links">
+    <li><a href="#capabilities" onclick="toggleMenu()">Features</a></li>
+    <li><a href="#modules" onclick="toggleMenu()">Modules</a></li>
+    <li><a href="#integrations" onclick="toggleMenu()">Integrations</a></li>
+    <li><a href="#pricing" onclick="toggleMenu()">Pricing</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="javascript:void(0)" onclick="openOnboarding('free','Free Forever','$0/mo'); toggleMenu();" class="btn-primary">Start Free</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -989,7 +1077,7 @@
   </p>
 
     <div class="hero-cta fade-up delay-3">
-      <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="btn-hero-primary">Start Building Free</a>
+      <a href="#pricing" class="btn-hero-primary">Start Building Free</a>
       <a href="#" class="btn-hero-ghost">
         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
         Watch 2-min Demo
@@ -1026,11 +1114,11 @@
       <span class="dot dot-r"></span>
       <span class="dot dot-y"></span>
       <span class="dot dot-g"></span>
-      <span class="dashboard-url">app.lmspro.com/admin/dashboard</span>
+      <span class="dashboard-url">app.batchwise.com/admin/dashboard</span>
     </div>
     <div class="dashboard-inner">
       <div class="dash-sidebar">
-        <div class="dash-logo">LMS<span>PRO</span></div>
+        <div class="dash-logo">Batch<span>wise</span></div>
         <div class="dash-nav-item active"><span class="dash-icon"></span>Dashboard</div>
         <div class="dash-nav-item"><span class="dash-icon"></span>Courses</div>
         <div class="dash-nav-item"><span class="dash-icon"></span>Students</div>
@@ -1105,7 +1193,7 @@
 </div>
 
 <!-- ROLE SECTION -->
-<section class="role-section">
+<section class="role-section" id="modules">
   <div class="text-center">
     <span class="section-label">Built for everyone</span>
     <h2 class="section-title text-center">Clear dashboards for admins, teachers &amp; students</h2>
@@ -1141,7 +1229,7 @@
           <p>Track enrollments, revenue, completion rates, and quiz performance with exportable dashboards.</p>
         </div>
       </div>
-      <a href="https://slategrey-trout-786905.hostingersite.com/demo/public/auto-login/admin" class="role-demo-link" target="_blank">Open Admin Console <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="https://gobatchwise.com/demo/public/admin" class="role-demo-link" target="_blank">Open Admin Console <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="role-visual">
       <div class="role-visual-title">Academy Control Panel</div>
@@ -1189,7 +1277,7 @@
           <p>Upload videos, PDFs, and notes. Organize your course content with an intuitive drag-and-drop builder.</p>
         </div>
       </div>
-      <a href="https://slategrey-trout-786905.hostingersite.com/demo/public/auto-login/tutor" class="role-demo-link" target="_blank">Open Tutor Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="https://midnightblue-cattle-130607.hostingersite.com/demo/public/trainer" class="role-demo-link" target="_blank">Open Tutor Dashboard <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="role-visual">
       <div class="role-visual-title">Live Session Dashboard</div>
@@ -1239,7 +1327,7 @@
           <p>Track your learning journey, celebrate milestones, and build a portfolio that showcases your growth.</p>
         </div>
       </div>
-      <a href="https://slategrey-trout-786905.hostingersite.com/demo/public/auto-login/student" class="role-demo-link" target="_blank">Enter Student Hub <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="https://midnightblue-cattle-130607.hostingersite.com/demo/public/dashboard" class="role-demo-link" target="_blank">Enter Student Hub <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="role-visual">
       <div class="role-visual-title">Student Learning Hub</div>
@@ -1407,7 +1495,7 @@
 </section>
 
 <!-- INTEGRATIONS -->
-<section class="integrations-section">
+<section class="integrations-section" id="integrations">
   <div class="text-center">
     <span class="section-label">Integrations</span>
     <h2 class="section-title text-center">Integrated with your favorite tools</h2>
@@ -1442,7 +1530,7 @@
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
       </div>
-      <p class="testimonial-text">"Switching to LMS Pro reduced our operational overhead by 40%. The multi-tutor assignment and automated fee splits changed how we manage our entire coding boot camp."</p>
+      <p class="testimonial-text">"Switching to Batchwise reduced our operational overhead by 40%. The multi-tutor assignment and automated fee splits changed how we manage our entire coding boot camp."</p>
       <div class="testimonial-author">
         <div class="t-avatar" style="background:var(--accent)">AR</div>
         <div>
@@ -1489,7 +1577,7 @@
 </section>
 
 <!-- PRICING -->
-<section class="pricing-section">
+<section class="pricing-section" id="pricing">
   <div class="text-center">
     <span class="section-label">Pricing</span>
     <h2 class="section-title text-center">Simple, transparent pricing</h2>
@@ -1510,7 +1598,7 @@
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 1 Course &amp; 1 Batch</li>
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 1 GB Storage</li>
       </ul>
-      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
+      <a href="javascript:void(0)" onclick="openOnboarding('free','Free Forever','$0/mo')" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
     </div>
     
     <div class="pricing-card">
@@ -1527,7 +1615,7 @@
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 3 Courses &amp; 5 Batches</li>
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 5 GB Storage</li>
       </ul>
-      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
+      <a href="javascript:void(0)" onclick="openOnboarding('starter','Starter','$19/mo')" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
     </div>
 
     <div class="pricing-card">
@@ -1544,7 +1632,7 @@
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Zoom Integration</li>
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> White-label Cert</li>
       </ul>
-      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
+      <a href="javascript:void(0)" onclick="openOnboarding('growth','Growth','$49/mo')" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Get Started</a>
     </div>
 
     <div class="pricing-card featured">
@@ -1562,7 +1650,7 @@
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Unlimited Courses</li>
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Priority Support</li>
       </ul>
-      <a href="#" class="pricing-btn pricing-btn-primary" style="margin-top: auto;">Get Started</a>
+      <a href="javascript:void(0)" onclick="openOnboarding('academy','Academy Pro','$99/mo')" class="pricing-btn pricing-btn-primary" style="margin-top: auto;">Get Started</a>
     </div>
 
     <div class="pricing-card">
@@ -1577,7 +1665,7 @@
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> Dedicated Server</li>
         <li><div class="check-icon"><i class="fa-solid fa-check"></i></div> 24/7 Priority Support</li>
       </ul>
-      <a href="#" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Contact Sales</a>
+      <a href="javascript:void(0)" onclick="openOnboarding('enterprise','Enterprise','Custom')" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Contact Sales</a>
     </div>
   </div>
 
@@ -1679,10 +1767,10 @@
   <div class="cta-bg"></div>
   <div class="cta-box">
     <h2>Ready to upgrade your academy?</h2>
-    <p>Join thousands of educators who've simplified their teaching with LMS Pro. Start free, scale as you grow.</p>
+    <p>Join thousands of educators who've simplified their teaching with Batchwise. Start free, scale as you grow.</p>
     <div class="cta-actions">
-      <a href="https://slategrey-trout-786905.hostingersite.com/pricing" class="btn-hero-primary">Start Building Now</a>
-      <a href="https://slategrey-trout-786905.hostingersite.com/" class="btn-hero-ghost">
+      <a href="#pricing" class="btn-hero-primary">Start Building Now</a>
+      <a href="#" class="btn-hero-ghost">
         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
         Watch Demo
       </a>
@@ -1694,7 +1782,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a class="nav-logo" href="#">LMS<span>PRO</span></a>
+      <a class="nav-logo" href="#">Batch<span>wise</span></a>
       <p>The complete platform for modern education. Grow your academy without the stress.</p>
       <div class="footer-socials">
         <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
@@ -1706,11 +1794,11 @@
     <div class="footer-col">
       <h5>Platform</h5>
       <ul class="footer-links">
-        <li><a href="https://slategrey-trout-786905.hostingersite.com/feature/course-builder">Course Builder</a></li>
-        <li><a href="https://slategrey-trout-786905.hostingersite.com/feature/quiz-builder">Quiz Builder</a></li>
-        <li><a href="https://slategrey-trout-786905.hostingersite.com/feature/live-classes">Live Classes</a></li>
-        <li><a href="https://slategrey-trout-786905.hostingersite.com/feature/smart-attendance">Smart Attendance</a></li>
-        <li><a href="https://slategrey-trout-786905.hostingersite.com/feature/fee-hub">Fee Hub</a></li>
+        <li><a href="#">Course Builder</a></li>
+        <li><a href="#">Quiz Builder</a></li>
+        <li><a href="#">Live Classes</a></li>
+        <li><a href="#">Smart Attendance</a></li>
+        <li><a href="#">Fee Hub</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1726,7 +1814,7 @@
     <div class="footer-col">
       <h5>Resources</h5>
       <ul class="footer-links">
-        <li><a href="https://slategrey-trout-786905.hostingersite.com/pricing">Pricing</a></li>
+        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#">Documentation</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">Support</a></li>
@@ -1735,7 +1823,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 LMS Pro SaaS | Powered by <a href="https://task19.com" target="_blank">Task19</a>. All rights reserved.</p>
+    <p>© 2026 Batchwise SaaS | Powered by <a href="https://task19.com" target="_blank">Task19</a>. All rights reserved.</p>
     <p>Made with <i class="fa-solid fa-heart" style="color: #ef4444;"></i> for educators</p>
   </div>
 </footer>
@@ -1750,6 +1838,15 @@
       nav.classList.remove('scrolled');
     }
   });
+
+  // Toggle Menu Logic
+  function toggleMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  }
 
   // Toggle Modules Logic
   function toggleModules(btn) {
@@ -1783,6 +1880,635 @@
     // Update content
     document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
     document.getElementById(`role-${role}`).classList.add('active');
+  }
+</script>
+
+<!-- ═══ ONBOARDING MODAL ═══ -->
+<style>
+  .ob-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(15,23,42,0.6);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .ob-overlay.active { opacity: 1; pointer-events: all; }
+  .ob-modal {
+    background: #fff;
+    border-radius: var(--radius-xl);
+    width: 100%; max-width: 540px;
+    max-height: 90vh; overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.25);
+    transform: translateY(30px) scale(0.96);
+    transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+    position: relative;
+  }
+  .ob-overlay.active .ob-modal { transform: translateY(0) scale(1); }
+  .ob-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--text2); font-size: 1.1rem;
+    transition: all 0.2s; z-index: 2;
+  }
+  .ob-close:hover { background: var(--bg3); color: var(--text); }
+  .ob-header { padding: 40px 40px 0; }
+  .ob-plan-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; background: var(--accent-glow);
+    color: var(--accent); border-radius: 100px;
+    font-size: 0.8rem; font-weight: 700; margin-bottom: 16px;
+  }
+  .ob-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem; font-weight: 800;
+    color: var(--text); margin-bottom: 4px;
+  }
+  .ob-subtitle { font-size: 0.9rem; color: var(--text3); }
+  .ob-body { padding: 32px 40px; }
+  .ob-step { display: none; }
+  .ob-step.active { display: block; animation: fadeIn 0.4s ease; }
+  .ob-field { margin-bottom: 20px; }
+  .ob-label {
+    display: block; font-size: 0.8rem; font-weight: 700;
+    color: var(--text2); text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .ob-input, .ob-select {
+    width: 100%; padding: 12px 16px; border-radius: 10px;
+    border: 1.5px solid var(--border2); background: var(--bg2);
+    font-family: var(--font-main); font-size: 0.95rem;
+    font-weight: 500; color: var(--text);
+    transition: all 0.2s; outline: none; box-sizing: border-box;
+  }
+  .ob-input:focus, .ob-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow); background: #fff;
+  }
+  .ob-input::placeholder { color: var(--text3); }
+  .ob-radio-group { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .ob-radio-option {
+    padding: 12px 16px; border: 1.5px solid var(--border2);
+    border-radius: 10px; background: var(--bg2); cursor: pointer;
+    text-align: center; font-size: 0.9rem; font-weight: 600;
+    color: var(--text2); transition: all 0.2s;
+  }
+  .ob-radio-option:hover { border-color: var(--accent); color: var(--accent); }
+  .ob-radio-option.selected {
+    border-color: var(--accent); background: var(--accent-glow); color: var(--accent);
+  }
+  .ob-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ob-phone-wrap { display: flex; }
+  .ob-phone-prefix {
+    padding: 12px 14px; border-radius: 10px 0 0 10px;
+    border: 1.5px solid var(--border2); border-right: none;
+    background: var(--bg3); font-size: 0.9rem; font-weight: 600;
+    color: var(--text2); white-space: nowrap; display: flex; align-items: center;
+  }
+  .ob-phone-wrap .ob-input { border-radius: 0 10px 10px 0; }
+  .ob-pw-wrap { position: relative; }
+  .ob-pw-toggle {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; color: var(--text3); cursor: pointer; font-size: 1rem;
+  }
+  .ob-pw-toggle:hover { color: var(--text); }
+  .ob-skip-link {
+    display: block; text-align: center; margin-top: 8px;
+    font-size: 0.85rem; font-weight: 600; color: var(--text3);
+    text-decoration: none; cursor: pointer;
+  }
+  .ob-skip-link:hover { color: var(--accent); }
+  .ob-hint { font-size: 0.78rem; color: var(--text3); margin-top: 4px; }
+  .ob-plan-summary {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 20px; background: var(--bg2); border-radius: 12px;
+    border: 1px solid var(--border); margin-bottom: 24px;
+  }
+  .ob-plan-summary-name { font-weight: 700; color: var(--text); font-size: 1.05rem; }
+  .ob-plan-summary-price {
+    font-family: var(--font-heading); font-weight: 800;
+    color: var(--accent); font-size: 1.2rem;
+  }
+  .ob-cycle-toggle {
+    display: flex; background: var(--bg2); border-radius: 10px;
+    border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px;
+  }
+  .ob-cycle-btn {
+    flex: 1; padding: 12px; font-family: var(--font-main);
+    font-size: 0.9rem; font-weight: 600; border: none;
+    background: transparent; color: var(--text2);
+    cursor: pointer; transition: all 0.2s; text-align: center;
+  }
+  .ob-cycle-btn.active {
+    background: var(--accent); color: #fff;
+    border-radius: 8px; box-shadow: 0 4px 12px rgba(79,70,229,0.25);
+  }
+  .ob-coupon-toggle {
+    font-size: 0.85rem; font-weight: 600; color: var(--accent);
+    cursor: pointer; margin-bottom: 16px; display: block;
+    background: none; border: none; font-family: var(--font-main); padding: 0;
+  }
+  .ob-coupon-row { display: none; gap: 10px; margin-bottom: 24px; }
+  .ob-coupon-row.active { display: flex; }
+  .ob-coupon-row .ob-input { flex: 1; }
+  .ob-apply-btn {
+    padding: 12px 20px; border-radius: 10px; background: var(--bg3);
+    border: 1px solid var(--border2); font-family: var(--font-main);
+    font-size: 0.85rem; font-weight: 700; color: var(--text);
+    cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  }
+  .ob-apply-btn:hover { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+  .ob-payment-options { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 32px; }
+  .ob-payment-opt {
+    padding: 16px 12px; border: 1.5px solid var(--border2);
+    border-radius: 12px; background: var(--bg2); cursor: pointer;
+    text-align: center; transition: all 0.2s;
+  }
+  .ob-payment-opt:hover { border-color: var(--accent); }
+  .ob-payment-opt.selected { border-color: var(--accent); background: var(--accent-glow); }
+  .ob-payment-opt i { font-size: 1.5rem; display: block; margin-bottom: 6px; color: var(--text2); }
+  .ob-payment-opt.selected i { color: var(--accent); }
+  .ob-payment-opt span { font-size: 0.75rem; font-weight: 700; color: var(--text2); }
+  .ob-payment-opt.selected span { color: var(--accent); }
+  .ob-footer {
+    padding: 0 40px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .ob-dots { display: flex; gap: 8px; }
+  .ob-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--border2); transition: all 0.3s;
+  }
+  .ob-dot.active { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+  .ob-dot.done { background: var(--teal); }
+  .ob-nav-btns { display: flex; gap: 12px; }
+  .ob-back-btn {
+    padding: 10px 24px; border-radius: 10px; background: var(--bg2);
+    border: 1px solid var(--border); font-family: var(--font-main);
+    font-size: 0.9rem; font-weight: 600; color: var(--text2);
+    cursor: pointer; transition: all 0.2s;
+  }
+  .ob-back-btn:hover { background: var(--bg3); color: var(--text); }
+  .ob-next-btn {
+    padding: 10px 28px; border-radius: 10px; background: var(--accent);
+    border: none; font-family: var(--font-main); font-size: 0.9rem;
+    font-weight: 600; color: #fff; cursor: pointer;
+    transition: all 0.3s; box-shadow: 0 4px 14px rgba(79,70,229,0.25);
+  }
+  .ob-next-btn:hover {
+    background: var(--accent-hover); transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79,70,229,0.35);
+  }
+  .ob-submit-btn {
+    width: 100%; padding: 16px; border-radius: 12px;
+    background: var(--accent); border: none; font-family: var(--font-main);
+    font-size: 1.05rem; font-weight: 700; color: #fff; cursor: pointer;
+    transition: all 0.3s; box-shadow: 0 10px 25px rgba(79,70,229,0.3);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .ob-submit-btn:hover {
+    background: var(--accent-hover); transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(79,70,229,0.4);
+  }
+  .ob-error { color: #EF4444; font-size: 0.78rem; font-weight: 600; margin-top: 4px; }
+  .ob-success { text-align: center; padding: 60px 40px; }
+  .ob-success-icon {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: #E6FFFA; color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin: 0 auto 24px;
+  }
+  .ob-success h3 { font-size: 1.5rem; margin-bottom: 12px; color: var(--text); }
+  .ob-success p { color: var(--text2); font-size: 0.95rem; line-height: 1.6; }
+  @media (max-width: 640px) {
+    .ob-modal {
+      max-width: 100%; max-height: 100%; height: 100vh; width: 100vw;
+      border-radius: 0; display: flex; flex-direction: column;
+    }
+    .ob-header { padding: 24px 24px 0; }
+    .ob-body { padding: 24px; flex: 1; overflow-y: auto; }
+    .ob-footer { padding: 0 24px 24px; }
+    .ob-row { grid-template-columns: 1fr; }
+    .ob-close { top: 16px; right: 16px; }
+  }
+</style>
+
+<div class="ob-overlay" id="obOverlay" onclick="if(event.target===this)closeOnboarding()">
+  <div class="ob-modal">
+    <button class="ob-close" onclick="closeOnboarding()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="ob-header" id="obHeader">
+      <div class="ob-plan-badge"><i class="fa-solid fa-bolt"></i> <span id="obPlanBadge">Free</span></div>
+      <h2 class="ob-title" id="obStepTitle">Tell us about your academy</h2>
+      <p class="ob-subtitle" id="obStepSub">Step 1 of 4</p>
+    </div>
+
+    <form id="obForm">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="plan" id="obPlan" value="free">
+      <input type="hidden" name="slug" id="obSlug" value="">
+
+      <div class="ob-body" id="obBody">
+        <!-- STEP 1: Basic Info -->
+        <div class="ob-step active" data-step="1">
+          <div class="ob-field">
+            <label class="ob-label">Institution Name *</label>
+            <input type="text" name="name" class="ob-input" placeholder="e.g. Bright Academy" required id="obInstName">
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">Institute Type *</label>
+            <select name="institute_type" class="ob-input" required>
+              <option value="" disabled selected>Select type...</option>
+              <option value="coaching_center">Coaching Center</option>
+              <option value="school">School</option>
+              <option value="individual_tutor">Individual Tutor</option>
+              <option value="corporate">Corporate</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">City and State *</label>
+            <input type="text" name="city_state" class="ob-input" placeholder="e.g. Kozhikode, Kerala" required>
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">Expected Students *</label>
+            <div class="ob-radio-group" id="obStudentRadios">
+              <div class="ob-radio-option" data-value="under_50" onclick="selectRadio(this)">Under 50</div>
+              <div class="ob-radio-option" data-value="50_200" onclick="selectRadio(this)">50–200</div>
+              <div class="ob-radio-option" data-value="200_500" onclick="selectRadio(this)">200–500</div>
+              <div class="ob-radio-option" data-value="500_plus" onclick="selectRadio(this)">500+</div>
+            </div>
+            <input type="hidden" name="expected_students" id="obExpStudents" required>
+          </div>
+        </div>
+
+        <!-- STEP 2: Admin Account -->
+        <div class="ob-step" data-step="2">
+          <div class="ob-field">
+            <label class="ob-label">Full Name *</label>
+            <input type="text" name="admin_name" class="ob-input" placeholder="Your full name" required>
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">Email Address *</label>
+            <input type="email" name="admin_email" class="ob-input" placeholder="you@example.com" required>
+            <div class="ob-hint">This becomes the login email</div>
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">Phone Number *</label>
+            <div class="ob-phone-wrap">
+              <span class="ob-phone-prefix">+91</span>
+              <input type="tel" name="admin_phone" class="ob-input" placeholder="9876543210" required maxlength="10">
+            </div>
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">Password *</label>
+            <div class="ob-pw-wrap">
+              <input type="password" name="admin_password" class="ob-input" id="obPw" placeholder="Min 8 characters" required minlength="8">
+              <button type="button" class="ob-pw-toggle" onclick="togglePw()"><i class="fa-solid fa-eye" id="obPwIcon"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: First Course (Optional) -->
+        <div class="ob-step" data-step="3">
+          <div class="ob-field">
+            <label class="ob-label">Course Name</label>
+            <input type="text" name="course_name" class="ob-input" placeholder="e.g. Class 10 Maths Batch">
+          </div>
+          <div class="ob-field">
+            <label class="ob-label">Subject / Category</label>
+            <select name="subject_category" class="ob-input">
+              <option value="" disabled selected>Select category...</option>
+              <option value="maths">Maths</option>
+              <option value="science">Science</option>
+              <option value="english">English</option>
+              <option value="coding">Coding</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="ob-row">
+            <div class="ob-field">
+              <label class="ob-label">First Batch Name</label>
+              <input type="text" name="batch_name" class="ob-input" placeholder="e.g. Batch A 2026">
+            </div>
+            <div class="ob-field">
+              <label class="ob-label">Start Date</label>
+              <input type="date" name="start_date" class="ob-input" id="obStartDate">
+            </div>
+          </div>
+          <a class="ob-skip-link" onclick="obGoTo(4)">Skip for now →</a>
+        </div>
+
+        <!-- STEP 4: Billing -->
+        <div class="ob-step" data-step="4">
+          <div class="ob-plan-summary">
+            <div>
+              <div class="ob-plan-summary-name" id="obSumPlan">Free</div>
+              <div style="font-size:0.8rem;color:var(--text3)">Selected Plan</div>
+            </div>
+            <div class="ob-plan-summary-price" id="obSumPrice">$0/mo</div>
+          </div>
+
+          <div class="ob-field">
+            <label class="ob-label">Billing Cycle</label>
+            <div class="ob-cycle-toggle">
+              <button type="button" class="ob-cycle-btn active" onclick="selectCycle(this,'monthly')">Monthly</button>
+              <button type="button" class="ob-cycle-btn" onclick="selectCycle(this,'annual')">Annual <span style="color:var(--teal);font-weight:700;font-size:0.75rem">Save 20%</span></button>
+            </div>
+            <input type="hidden" name="billing_cycle" id="obCycle" value="monthly">
+          </div>
+
+          <button type="button" class="ob-coupon-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Have a coupon code?</button>
+          <div class="ob-coupon-row" id="obCouponRow">
+            <input type="text" name="coupon_code" class="ob-input" placeholder="Enter coupon code">
+            <button type="button" class="ob-apply-btn">Apply</button>
+          </div>
+
+          <div class="ob-field">
+            <label class="ob-label">Payment Method</label>
+            <div class="ob-payment-options">
+              <div class="ob-payment-opt selected" data-value="razorpay" onclick="selectPayment(this)">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Razorpay</span>
+              </div>
+              <div class="ob-payment-opt" data-value="phonepe" onclick="selectPayment(this)">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <span>PhonePe</span>
+              </div>
+              <div class="ob-payment-opt" data-value="card" onclick="selectPayment(this)">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Card</span>
+              </div>
+            </div>
+            <input type="hidden" name="payment_method" id="obPayMethod" value="razorpay">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="ob-footer" id="obFooter">
+      <div class="ob-dots">
+        <div class="ob-dot active"></div>
+        <div class="ob-dot"></div>
+        <div class="ob-dot"></div>
+        <div class="ob-dot"></div>
+      </div>
+      <div class="ob-nav-btns" id="obNavBtns">
+        <button type="button" class="ob-back-btn" id="obBackBtn" onclick="obPrev()" style="display:none">Back</button>
+        <button type="button" class="ob-next-btn" id="obNextBtn" onclick="obNext()">Next</button>
+        <button type="submit" form="obForm" class="ob-next-btn" id="obSubmitBtn" style="display:none; background: var(--teal); box-shadow: 0 4px 14px rgba(20,184,166,0.25);"><i class="fa-solid fa-rocket"></i> Launch Academy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ─── ONBOARDING MODAL ───
+  let obStep = 1;
+  const obTitles = ['Tell us about your academy','Create your admin account','Set up your first course','Review & launch'];
+  const obSubs = ['Step 1 of 4','Step 2 of 4','Step 3 of 4 \u00b7 Optional','Step 4 of 4'];
+
+  function openOnboarding(planId, planName, planPrice) {
+    obStep = 1;
+    document.getElementById('obPlan').value = planId;
+    document.getElementById('obPlanBadge').textContent = planName;
+    document.getElementById('obSumPlan').textContent = planName;
+    document.getElementById('obSumPrice').textContent = planPrice;
+    document.getElementById('obOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('obStartDate').value = new Date().toISOString().split('T')[0];
+    // Reset form
+    document.getElementById('obForm').reset();
+    document.getElementById('obPlan').value = planId;
+    document.querySelectorAll('.ob-radio-option').forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.ob-error').forEach(e => e.remove());
+    document.querySelectorAll('.ob-input').forEach(f => f.style.borderColor = '');
+    // Reset cycle toggle
+    document.querySelectorAll('.ob-cycle-btn').forEach((b,i) => b.classList.toggle('active', i===0));
+    document.getElementById('obCycle').value = 'monthly';
+    // Reset payment
+    document.querySelectorAll('.ob-payment-opt').forEach((o,i) => o.classList.toggle('selected', i===0));
+    document.getElementById('obPayMethod').value = 'razorpay';
+    // Reset coupon
+    document.getElementById('obCouponRow').classList.remove('active');
+    // Restore form view if success was shown
+    document.getElementById('obForm').style.display = '';
+    document.getElementById('obFooter').style.display = '';
+    document.getElementById('obHeader').style.display = '';
+    const oldSuccess = document.querySelector('.ob-success');
+    if (oldSuccess) oldSuccess.remove();
+    updateOb();
+  }
+
+  function closeOnboarding() {
+    document.getElementById('obOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateOb() {
+    document.querySelectorAll('.ob-step').forEach(s => s.classList.remove('active'));
+    document.querySelector('.ob-step[data-step="' + obStep + '"]').classList.add('active');
+    document.getElementById('obStepTitle').textContent = obTitles[obStep - 1];
+    document.getElementById('obStepSub').textContent = obSubs[obStep - 1];
+    document.querySelectorAll('.ob-dot').forEach((d, i) => {
+      d.classList.remove('active', 'done');
+      if (i + 1 === obStep) d.classList.add('active');
+      else if (i + 1 < obStep) d.classList.add('done');
+    });
+    document.getElementById('obBackBtn').style.display = obStep === 1 ? 'none' : '';
+    document.getElementById('obNextBtn').style.display = obStep === 4 ? 'none' : '';
+    document.getElementById('obSubmitBtn').style.display = obStep === 4 ? '' : 'none';
+    // Auto-generate slug from name
+    var instName = document.getElementById('obInstName').value;
+    document.getElementById('obSlug').value = instName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  function obNext() {
+    if (!validateOb(obStep)) return;
+    if (obStep < 4) { obStep++; updateOb(); }
+  }
+
+  function obPrev() {
+    if (obStep > 1) { obStep--; updateOb(); }
+  }
+
+  function obGoTo(s) { obStep = s; updateOb(); }
+
+  function validateOb(step) {
+    if (step === 3) return true; // Step 3 is optional
+    var el = document.querySelector('.ob-step[data-step="' + step + '"]');
+    var valid = true;
+    el.querySelectorAll('.ob-error').forEach(e => e.remove());
+    el.querySelectorAll('.ob-input').forEach(f => f.style.borderColor = '');
+    el.querySelectorAll('[required]').forEach(f => {
+      if (!f.value || !f.value.trim()) {
+        valid = false;
+        if (f.type !== 'hidden') {
+          f.style.borderColor = '#EF4444';
+          var err = document.createElement('div');
+          err.className = 'ob-error';
+          err.textContent = 'This field is required';
+          f.parentElement.appendChild(err);
+        }
+      }
+    });
+    if (step === 1 && !document.getElementById('obExpStudents').value) {
+      valid = false;
+      var rg = document.getElementById('obStudentRadios');
+      if (!rg.parentElement.querySelector('.ob-error')) {
+        var err = document.createElement('div');
+        err.className = 'ob-error';
+        err.textContent = 'Please select an option';
+        rg.parentElement.appendChild(err);
+      }
+    }
+    return valid;
+  }
+
+  function selectRadio(el) {
+    el.parentElement.querySelectorAll('.ob-radio-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('obExpStudents').value = el.dataset.value;
+    var err = el.parentElement.parentElement.querySelector('.ob-error');
+    if (err) err.remove();
+  }
+
+  function togglePw() {
+    var pw = document.getElementById('obPw');
+    var icon = document.getElementById('obPwIcon');
+    pw.type = pw.type === 'password' ? 'text' : 'password';
+    icon.className = pw.type === 'password' ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash';
+  }
+
+  function selectCycle(btn, val) {
+    btn.parentElement.querySelectorAll('.ob-cycle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('obCycle').value = val;
+  }
+
+  function selectPayment(el) {
+    el.parentElement.querySelectorAll('.ob-payment-opt').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('obPayMethod').value = el.dataset.value;
+  }
+
+  document.getElementById('obForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('obSubmitBtn');
+    var btnOriginalHtml = '<i class="fa-solid fa-rocket"></i> Launch Academy';
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+    btn.disabled = true;
+    
+    // Clear previous errors
+    document.querySelectorAll('.ob-error').forEach(e => e.remove());
+    document.querySelectorAll('.ob-input').forEach(f => f.style.borderColor = '');
+
+    var formData = new FormData(this);
+    fetch('/register-institution', {
+      method: 'POST',
+      body: formData,
+      headers: { 
+        'X-Requested-With': 'XMLHttpRequest',
+        'Accept': 'application/json'
+      }
+    })
+    .then(async function(response) {
+      if (response.ok) {
+        showObSuccess();
+      } else {
+        btn.innerHTML = btnOriginalHtml;
+        btn.disabled = false;
+        
+        if (response.status === 422) {
+          var data = await response.json();
+          var firstErrorStep = null;
+          
+          var fieldMap = {
+            'name': { id: 'obInstName', step: 1 },
+            'slug': { id: 'obInstName', step: 1, customMsg: true },
+            'institute_type': { name: 'institute_type', step: 1 },
+            'city_state': { name: 'city_state', step: 1 },
+            'expected_students': { id: 'obStudentRadios', step: 1 },
+            'admin_name': { name: 'admin_name', step: 2 },
+            'admin_email': { name: 'admin_email', step: 2 },
+            'admin_phone': { name: 'admin_phone', step: 2 },
+            'admin_password': { id: 'obPw', step: 2 }
+          };
+
+          for (var field in data.errors) {
+            var mapping = fieldMap[field];
+            if (mapping) {
+              if (firstErrorStep === null || mapping.step < firstErrorStep) {
+                firstErrorStep = mapping.step;
+              }
+              
+              var inputEl = null;
+              if (mapping.id) {
+                inputEl = document.getElementById(mapping.id);
+              } else if (mapping.name) {
+                inputEl = document.querySelector('[name="' + mapping.name + '"]');
+              }
+              
+              if (inputEl) {
+                if (inputEl.type !== 'hidden') {
+                  inputEl.style.borderColor = '#EF4444';
+                }
+                var err = document.createElement('div');
+                err.className = 'ob-error';
+                err.textContent = mapping.customMsg && field === 'slug' 
+                  ? 'This subdomain name is already taken. Please try another Institution Name.' 
+                  : data.errors[field][0];
+                
+                inputEl.parentElement.appendChild(err);
+              }
+            }
+          }
+          
+          if (firstErrorStep !== null) {
+            obGoTo(firstErrorStep);
+          }
+        } else {
+          alert('An unexpected error occurred. Please try again.');
+        }
+      }
+    })
+    .catch(function(err) {
+      btn.innerHTML = btnOriginalHtml;
+      btn.disabled = false;
+      alert('Network error. Please check your connection.');
+    });
+  });
+
+  function showObSuccess() {
+    document.getElementById('obForm').style.display = 'none';
+    document.getElementById('obFooter').style.display = 'none';
+    document.getElementById('obHeader').style.display = 'none';
+    var modal = document.querySelector('.ob-modal');
+    var div = document.createElement('div');
+    div.className = 'ob-success';
+    
+    // Get values from form to display
+    var instName = document.getElementById('obInstName').value;
+    var slug = document.getElementById('obSlug').value;
+    var planName = document.getElementById('obPlanBadge').textContent;
+    
+    // Switched tenant URL
+    var switchUrl = '/i/' + slug + '/login';
+    
+    div.innerHTML =
+      '<div class="ob-success-icon" style="background:#E6FFFA;color:var(--teal);"><i class="fa-solid fa-check"></i></div>' +
+      '<h3 style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:var(--text);margin-bottom:8px;">Your Academy is Live!</h3>' +
+      '<p style="font-size:0.95rem;color:var(--text2);margin-bottom:4px;font-weight:600;">' + instName + ' &nbsp;|&nbsp; <a href="' + switchUrl + '" target="_blank" style="color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px;">' + slug + '.gobatchwise.com <i class="fa-solid fa-up-right-from-square" style="font-size:0.75rem;"></i></a></p>' +
+      '<p style="font-size:0.85rem;color:var(--text3);margin-bottom:28px;">' + planName + ' &nbsp;|&nbsp; Billing starts today</p>' +
+      '<div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:320px;margin:0 auto 20px;">' +
+        '<a href="' + switchUrl + '" class="ob-next-btn" style="text-align:center;text-decoration:none;display:block;"><i class="fa-solid fa-gauge"></i> Open Admin Console</a>' +
+        '<a href="' + switchUrl + '?redirect=trainers" class="ob-back-btn" style="text-align:center;text-decoration:none;display:block;border-color:var(--border2);"><i class="fa-solid fa-user-plus"></i> Invite First Tutor</a>' +
+        '<a href="' + switchUrl + '?redirect=courses/create" class="ob-back-btn" style="text-align:center;text-decoration:none;display:block;border-color:var(--border2);"><i class="fa-solid fa-book-medical"></i> Add Your First Course</a>' +
+      '</div>' +
+      '<a href="javascript:void(0)" onclick="closeOnboarding()" style="font-size:0.8rem;color:var(--text3);text-decoration:none;display:inline-block;margin-top:10px;">Explore the platform first &mdash; no rush</a>';
+    modal.appendChild(div);
   }
 </script>
 
