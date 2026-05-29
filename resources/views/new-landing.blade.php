@@ -352,7 +352,7 @@
 
   /* ─── DASHBOARD PREVIEW ─── */
   .dashboard-preview {
-    background: var(--bg2);
+    background: var(--bg);
     padding: 60px 5% 120px;
     position: relative;
     z-index: 5;
@@ -558,7 +558,7 @@
   .hero-cta { margin-bottom: 64px; }
   .cta-actions { margin-top: 40px; }
 
-  .role-section { background: var(--bg); padding: 80px 5% 60px; }
+  .role-section { background: var(--bg2); padding: 80px 5% 60px; }
   .role-tabs {
     display: flex;
     justify-content: center;
@@ -739,7 +739,7 @@
   .feature-link:hover { gap: 12px; color: var(--accent-hover); }
 
   /* ─── INTEGRATIONS ─── */
-  .integrations-section { background: var(--bg); }
+  .integrations-section { background: var(--bg2); }
   .integrations-grid {
     display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
     max-width: 800px; margin: 0 auto;
@@ -759,7 +759,7 @@
   .integration-pill-icon { font-size: 1.2rem; }
 
   /* ─── TESTIMONIALS ─── */
-  .testimonials-section { background: var(--bg2); }
+  .testimonials-section { background: var(--bg); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -794,7 +794,7 @@
   .t-role { font-size: 0.78rem; color: var(--text3); }
 
   /* ─── PRICING ─── */
-  .pricing-section { background: var(--bg); padding: 120px 5%; }
+  .pricing-section { background: var(--bg2); padding: 120px 5%; }
   .pricing-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1352,7 +1352,7 @@
 </section>
 
 <!-- PLATFORM CAPABILITIES -->
-<section id="capabilities" style="background: var(--bg2); padding: 80px 5%;">
+<section id="capabilities" style="background: var(--bg); padding: 80px 5%;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div style="margin-bottom: 40px;">
       <span class="section-label" style="color: var(--accent);">PLATFORM FEATURES</span>
@@ -1675,10 +1675,12 @@
       <a href="javascript:void(0)" onclick="openOnboarding('enterprise','Enterprise','Custom')" class="pricing-btn pricing-btn-ghost" style="margin-top: auto;">Contact Sales</a>
     </div>
   </div>
+</section>
 
-  <!-- Comparison Table -->
+<!-- Comparison Table -->
+<section class="comparison-section" style="background-color: var(--bg); padding: 60px 5% 80px; border-top: 1px solid var(--border);">
   <div class="pricing-table-container">
-    <h3 style="text-align:center; font-size: 2rem; margin: 60px 0 30px; font-weight: 800;">Compare Plans</h3>
+    <h3 style="text-align:center; font-size: 2rem; margin: 0 0 30px; font-weight: 800;">Compare Plans</h3>
     <div class="table-responsive">
       <table class="pricing-table">
         <thead>
