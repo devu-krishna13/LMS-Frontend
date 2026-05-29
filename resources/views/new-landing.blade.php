@@ -210,10 +210,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 140px 5% 100px;
+    padding: 140px 5% 60px;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 50%);
+    background-color: var(--bg);
+    background-image: radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 50%);
   }
   .hero-grid-bg {
     position: absolute; inset: 0;
@@ -351,7 +352,8 @@
 
   /* ─── DASHBOARD PREVIEW ─── */
   .dashboard-preview {
-    padding: 0 5% 120px;
+    background: var(--bg2);
+    padding: 60px 5% 120px;
     position: relative;
     z-index: 5;
   }
@@ -556,7 +558,7 @@
   .hero-cta { margin-bottom: 64px; }
   .cta-actions { margin-top: 40px; }
 
-  .role-section { background: var(--bg2); padding: 80px 5% 60px; }
+  .role-section { background: var(--bg); padding: 80px 5% 60px; }
   .role-tabs {
     display: flex;
     justify-content: center;
@@ -737,7 +739,7 @@
   .feature-link:hover { gap: 12px; color: var(--accent-hover); }
 
   /* ─── INTEGRATIONS ─── */
-  .integrations-section { background: var(--bg2); }
+  .integrations-section { background: var(--bg); }
   .integrations-grid {
     display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
     max-width: 800px; margin: 0 auto;
@@ -757,7 +759,7 @@
   .integration-pill-icon { font-size: 1.2rem; }
 
   /* ─── TESTIMONIALS ─── */
-  .testimonials-section { background: var(--bg); }
+  .testimonials-section { background: var(--bg2); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -792,7 +794,7 @@
   .t-role { font-size: 0.78rem; color: var(--text3); }
 
   /* ─── PRICING ─── */
-  .pricing-section { background: var(--bg2); padding: 120px 5%; }
+  .pricing-section { background: var(--bg); padding: 120px 5%; }
   .pricing-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1054,7 +1056,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="padding-bottom: 0;">
   <div class="hero-grid-bg"></div>
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
@@ -1081,7 +1083,10 @@
       </a>
     </div>
 
-  <div class="hero-stats fade-up delay-4">
+</section>
+
+<section style="background-color: var(--bg2); padding: 60px 5%; border-top: 1px solid var(--border);">
+  <div class="hero-stats fade-up delay-4" style="margin: 0 auto; max-width: 1200px;">
     <div class="hero-stat-item">
       <span class="hero-stat-num">12K+</span>
       <span class="hero-stat-label">Active Students</span>
@@ -1347,7 +1352,7 @@
 </section>
 
 <!-- PLATFORM CAPABILITIES -->
-<section id="capabilities" style="background: var(--bg); padding: 80px 5%;">
+<section id="capabilities" style="background: var(--bg2); padding: 80px 5%;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div style="margin-bottom: 40px;">
       <span class="section-label" style="color: var(--accent);">PLATFORM FEATURES</span>
@@ -1446,8 +1451,8 @@
       </div>
     </div>
 
-    <div style="margin-top: 30px;">
-      <button onclick="toggleModules(this)" class="btn-ghost" id="explore-btn" style="border: 1px solid var(--border); background: #fff;">Explore All 15+ Modules</button>
+    <div style="margin-top: 40px; text-align: center;">
+      <button onclick="toggleModules(this)" class="btn-primary" id="explore-btn">Explore All 15+ Features</button>
     </div>
   </div>
 
@@ -1860,10 +1865,10 @@
       // Force reflow
       moreModules.offsetHeight;
       moreModules.classList.add('active');
-      btn.innerText = 'Show Fewer Modules';
+      btn.innerText = 'Show Fewer Features';
     } else {
       moreModules.classList.remove('active');
-      btn.innerText = 'Explore All 15+ Modules';
+      btn.innerText = 'Explore All 15+ Features';
       // Wait for transition
       setTimeout(() => {
         if (!moreModules.classList.contains('active')) {
@@ -2267,6 +2272,11 @@
 </div>
 
 <script>
+  function toggleMenu() {
+    document.querySelector('.menu-toggle').classList.toggle('active');
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+
   // ─── ONBOARDING MODAL ───
   let obStep = 1;
   const obTitles = ['Tell us about your academy','Create your admin account','Set up your first course','Review & launch'];
