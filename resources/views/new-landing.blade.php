@@ -737,7 +737,7 @@
   .feature-link:hover { gap: 12px; color: var(--accent-hover); }
 
   /* ─── INTEGRATIONS ─── */
-  .integrations-section { background: var(--bg); }
+  .integrations-section { background: var(--bg2); }
   .integrations-grid {
     display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
     max-width: 800px; margin: 0 auto;
@@ -757,7 +757,7 @@
   .integration-pill-icon { font-size: 1.2rem; }
 
   /* ─── TESTIMONIALS ─── */
-  .testimonials-section { background: var(--bg2); }
+  .testimonials-section { background: var(--bg); }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -792,7 +792,7 @@
   .t-role { font-size: 0.78rem; color: var(--text3); }
 
   /* ─── PRICING ─── */
-  .pricing-section { background: var(--bg); padding: 120px 5%; }
+  .pricing-section { background: var(--bg2); padding: 120px 5%; }
   .pricing-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -982,7 +982,7 @@
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    .nav-links { display: none; }
+    nav .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .role-content { grid-template-columns: 1fr; gap: 40px; }
     .role-visual { order: -1; }
@@ -1051,9 +1051,6 @@
     <li><a href="#integrations" onclick="toggleMenu()">Integrations</a></li>
     <li><a href="#pricing" onclick="toggleMenu()">Pricing</a></li>
   </ul>
-  <div class="nav-actions">
-    <a href="javascript:void(0)" onclick="openOnboarding('free','Free Forever','$0/mo'); toggleMenu();" class="btn-primary">Start Free</a>
-  </div>
 </div>
 
 <!-- HERO -->
@@ -1350,148 +1347,153 @@
 </section>
 
 <!-- PLATFORM CAPABILITIES -->
-<section id="capabilities" class="role-section">
-  <div class="text-center">
-    <span class="section-label">Platform Capabilities</span>
-    <h2 class="section-title text-center">The 6 Pillars of a Premium Academy</h2>
-    <p class="section-sub text-center">We've focused on the high-impact features that actually drive growth, save time, and provide a world-class experience for your students.</p>
-  </div>
-
-  <div class="features-grid">
-    <!-- Feature 1: Multi-Tutor -->
-    <div class="feature-card">
-      <div class="feature-tag">For Scaling</div>
-      <div class="feature-icon fi-purple"><i class="fa-solid fa-users"></i></div>
-      <h3>Multi-Tutor Orchestration</h3>
-      <p>Assign multiple trainers to a single batch. Perfect for co-teaching models, guest lectures, and ensuring your classes never stop even if one tutor is away.</p>
+<section id="capabilities" style="background: var(--bg); padding: 80px 5%;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="margin-bottom: 40px;">
+      <span class="section-label" style="color: var(--accent);">PLATFORM FEATURES</span>
+      <h2 style="font-family: var(--font-main); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: var(--text); margin-bottom: 16px; letter-spacing: -0.02em;">
+        The 6 Pillars of a Premium Academy — <span style="font-style: italic; font-weight: 400;">full feature list</span>
+      </h2>
+      <p style="font-size: 1.05rem; color: var(--text2); max-width: 600px; line-height: 1.6;">
+        Everything in your platform is built to display the beauty and details of your academy's collection of courses.
+      </p>
     </div>
 
-    <!-- Feature 2: LinkedIn Certs -->
-    <div class="feature-card">
-      <div class="feature-tag">For Students</div>
-      <div class="feature-icon fi-blue"><i class="fa-solid fa-certificate"></i></div>
-      <h3>LinkedIn Certificate Sync</h3>
-      <p>One-click professional sharing. Students can post verified completion certificates directly to their LinkedIn feeds, driving organic growth for your brand.</p>
+    <div class="features-list-grid">
+      <!-- Feature 1 -->
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="fl-title">Multi-Tutor Orchestration</div>
+        <div class="fl-tag">MANAGE</div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div class="fl-title">LinkedIn Certificate Sync</div>
+        <div class="fl-tag">GROWTH</div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-clock"></i></div>
+        <div class="fl-title">Automated Attendance Audit</div>
+        <div class="fl-tag">INSIGHTS</div>
+      </div>
+      <!-- Feature 4 -->
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-ticket"></i></div>
+        <div class="fl-title">Student-Specific Coupons</div>
+        <div class="fl-tag">SALES</div>
+      </div>
+      <!-- Feature 5 -->
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-video"></i></div>
+        <div class="fl-title">Live Session Engine</div>
+        <div class="fl-tag">PERF</div>
+      </div>
+      <!-- Feature 6 -->
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+        <div class="fl-title">Fee Hub &amp; Split Payments</div>
+        <div class="fl-tag">TRUST</div>
+      </div>
     </div>
 
-    <!-- Feature 3: Attendance Audit -->
-    <div class="feature-card">
-      <div class="feature-tag">For Efficiency</div>
-      <div class="feature-icon fi-green"><i class="fa-solid fa-clock"></i></div>
-      <h3>Automated Attendance Audit</h3>
-      <p>Zero manual roll calls. Track exactly when students join and export detailed engagement reports instantly for both live sessions and recorded classes.</p>
+    <div class="features-list-grid hidden-modules" id="more-modules" style="margin-top: 20px;">
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="fl-title">Advanced Analytics Hub</div>
+        <div class="fl-tag">ADMIN</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <div class="fl-title">MCQ Assessment Engine</div>
+        <div class="fl-tag">TRAINER</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-file-invoice"></i></div>
+        <div class="fl-title">Admissions Pipeline</div>
+        <div class="fl-tag">ADMIN</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-chart-bar"></i></div>
+        <div class="fl-title">Watch-Time Analytics</div>
+        <div class="fl-tag">TRAINER</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-folder-open"></i></div>
+        <div class="fl-title">Digital Asset Management</div>
+        <div class="fl-tag">TRAINER</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="fl-title">Visual Progress Tracking</div>
+        <div class="fl-tag">STUDENT</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-file-arrow-up"></i></div>
+        <div class="fl-title">Assignment Submissions</div>
+        <div class="fl-tag">STUDENT</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-gears"></i></div>
+        <div class="fl-title">Resource Monitoring</div>
+        <div class="fl-tag">ADMIN</div>
+      </div>
+      <div class="feature-list-item">
+        <div class="fl-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <div class="fl-title">System User Controls</div>
+        <div class="fl-tag">ADMIN</div>
+      </div>
     </div>
 
-    <!-- Feature 4: Smart Coupons -->
-    <div class="feature-card">
-      <div class="feature-tag">For Security</div>
-      <div class="feature-icon fi-pink"><i class="fa-solid fa-ticket"></i></div>
-      <h3>Student-Specific Coupons</h3>
-      <p>Prevent discount leaks. Generate secure promo codes strictly linked to unique student accounts, ensuring your scholarship models stay private.</p>
-    </div>
-
-    <!-- Feature 5: Live Engine -->
-    <div class="feature-card">
-      <div class="feature-tag">For Teaching</div>
-      <div class="feature-icon fi-amber"><i class="fa-solid fa-video"></i></div>
-      <h3>Live Session Engine</h3>
-      <p>Seamless Zoom &amp; Google Meet integration. Schedule and host live classes through the platform, with instant replay available for students who missed them.</p>
-    </div>
-
-    <!-- Feature 6: Fee Hub -->
-    <div class="feature-card">
-      <div class="feature-tag">For Business</div>
-      <div class="feature-icon fi-teal"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-      <h3>Fee Hub &amp; Split Payments</h3>
-      <p>Automate invoicing and split payments. Cross-reference PhonePe payments and automate payouts with clean, exportable bookkeeping.</p>
-    </div>
-  </div>
-
-  <div class="features-grid hidden-modules" id="more-modules">
-    <!-- Feature 7: Advanced Analytics -->
-    <div class="feature-card">
-      <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-blue"><i class="fa-solid fa-chart-line"></i></div>
-      <h3>Advanced Analytics Hub</h3>
-      <p>Track real-time business metrics across active student cohorts, trainer performance, and registration conversion funnels.</p>
-    </div>
-
-    <!-- Feature 8: MCQ Assessments -->
-    <div class="feature-card">
-      <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-green"><i class="fa-solid fa-pen-to-square"></i></div>
-      <h3>MCQ Assessment Engine</h3>
-      <p>Build mandatory assessments with automated grading, time limits, and randomized question banks for secure testing.</p>
-    </div>
-
-    <!-- Feature 9: Admissions Pipeline -->
-    <div class="feature-card">
-      <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-amber"><i class="fa-solid fa-file-invoice"></i></div>
-      <h3>Admissions Pipeline</h3>
-      <p>Audit and verify multi-step admissions forms with manual approval to route accepted students into active cohorts.</p>
-    </div>
-
-    <!-- Feature 10: Watch-Time Tracking -->
-    <div class="feature-card">
-      <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-pink"><i class="fa-solid fa-chart-bar"></i></div>
-      <h3>Watch-Time Analytics</h3>
-      <p>Detailed engagement reports showing exactly which students watched recorded classes, how much they completed, and where they dropped off.</p>
-    </div>
-
-    <!-- Feature 11: Curriculum Builder -->
-    <!-- <div class="feature-card">
-      <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-blue"><i class="fa-solid fa-book"></i></div>
-      <h3>Recorded Course Management</h3>
-      <p>Drag-and-drop sequencing for recorded lessons and YouTube-hosted video frameworks with an intuitive builder.</p>
-    </div> -->
-
-    <!-- Feature 12: Asset Management -->
-    <div class="feature-card">
-      <div class="feature-tag">Trainer</div>
-      <div class="feature-icon fi-teal"><i class="fa-solid fa-folder-open"></i></div>
-      <h3>Digital Asset Management</h3>
-      <p>Centralized hub for uploading and linking PDFs, worksheets, and slide decks directly to specific lessons.</p>
-    </div>
-
-    <!-- Feature 13: Progress Tracking -->
-    <div class="feature-card">
-      <div class="feature-tag">Student</div>
-      <div class="feature-icon fi-purple"><i class="fa-solid fa-laptop-code"></i></div>
-      <h3>Visual Progress Tracking</h3>
-      <p>Dynamic progress bars and milestone markers that help students stay motivated and on track throughout their coursework.</p>
-    </div>
-
-    <!-- Feature 14: Assignment Submissions -->
-    <div class="feature-card">
-      <div class="feature-tag">Student</div>
-      <div class="feature-icon fi-blue"><i class="fa-solid fa-file-arrow-up"></i></div>
-      <h3>Assignment Submissions</h3>
-      <p>Students can upload and submit assignments directly through the platform, with status tracking and trainer feedback on each submission.</p>
-    </div>
-
-    <!-- Feature 15: Resource Monitoring -->
-    <div class="feature-card">
-      <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-teal"><i class="fa-solid fa-gears"></i></div>
-      <h3>Resource Monitoring</h3>
-      <p>Central dashboard to monitor storage limits, database health, and API usage for Zoom and PhonePe.</p>
-    </div>
-
-    <!-- Feature 16: User Controls -->
-    <div class="feature-card">
-      <div class="feature-tag">Admin</div>
-      <div class="feature-icon fi-purple"><i class="fa-solid fa-user-shield"></i></div>
-      <h3>System User Controls</h3>
-      <p>Full administrative rights for password resets, account locking, and trainer permission management.</p>
+    <div style="margin-top: 30px;">
+      <button onclick="toggleModules(this)" class="btn-ghost" id="explore-btn" style="border: 1px solid var(--border); background: #fff;">Explore All 15+ Modules</button>
     </div>
   </div>
 
-  <div class="text-center" style="margin-top: 24px;">
-    <button onclick="toggleModules(this)" class="btn-hero-primary" id="explore-btn">Explore All 15+ Modules</button>
-  </div>
+  <style>
+    .features-list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .feature-list-item {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: all 0.2s;
+    }
+    .feature-list-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .fl-icon {
+      width: 36px; height: 36px;
+      border-radius: 6px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; margin-right: 16px;
+    }
+    .fl-title {
+      font-weight: 700; font-size: 0.95rem; color: var(--text); flex: 1;
+    }
+    .fl-tag {
+      font-size: 0.7rem; font-weight: 700; color: var(--accent);
+      background: var(--accent-glow); padding: 4px 10px; border-radius: 4px;
+      letter-spacing: 0.05em; margin-left: 10px;
+    }
+    @media (max-width: 768px) {
+      .features-list-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </section>
 
 <!-- INTEGRATIONS -->
